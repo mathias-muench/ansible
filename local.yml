@@ -1,4 +1,10 @@
+---
+# vi:ai:et:sw=2:ts=2
+#
 - hosts: localhost
   connection: local
+  become: yes
+  become_user: root
   tasks:
-    - debug: msg=bla
+    - package:
+        name: acpid

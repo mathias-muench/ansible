@@ -14,6 +14,19 @@
         - "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2015.10.28-1.fedora.x86_64.rpm"
         - python2-boto
         - python-netaddr
+        - python2-dns
+
+    - name: awscli archive
+      unarchive:
+        src: "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
+        dest: /tmp
+        copy: no
+
+    - name: awscli installation
+      become: yes
+      shell: "./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws"
+      args:
+        chdir: /tmp
 
 - hosts: localhost
   connection: local

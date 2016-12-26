@@ -15,6 +15,9 @@
         - python2-boto
         - python-netaddr
         - python2-dns
+        - libselinux-python
+
+    - selinux: state=disabled
 
     - name: awscli archive
       unarchive:

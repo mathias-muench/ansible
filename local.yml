@@ -21,6 +21,9 @@
         - xdotool
         - awscli
         - pandoc
+        - libselinux-python
+
+    - selinux: state=disabled
 
     - pip:
         name: grip

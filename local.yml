@@ -25,6 +25,7 @@
         - xsel
         - tidy
         - pinentry-qt
+        - vim-X11
 
     - selinux: state=disabled
 

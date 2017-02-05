@@ -22,6 +22,9 @@
         - awscli
         - pandoc
         - libselinux-python
+        - xsel
+        - tidy
+        - pinentry-qt
 
     - selinux: state=disabled
 
@@ -58,7 +61,7 @@
     - copy:
         dest: ~/.Xdefaults
         content: |
-          URxvt.font: 10x20
+          URxvt.font: "-*-liberation mono-medium-r-*-*-*-120-100-100-*-*-iso8859-1"
     - file:
         dest: "{{ item }}"
         state: directory
@@ -85,4 +88,8 @@
         - "let vim_markdown_preview_browser='Mozilla Firefox'"
         - "let vim_markdown_preview_perl=1"
         - "let vim_markdown_preview_use_xdg_open=1"
-
+        - 'let g:table_mode_corner="|"'
+    - copy:
+        dest: ~/.bash/aws.rc
+        content: |
+          complete -C '/usr/bin/aws_completer' aws

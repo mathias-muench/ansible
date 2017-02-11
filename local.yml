@@ -62,7 +62,7 @@
     - copy:
         dest: ~/.Xdefaults
         content: |
-          URxvt.font: "-*-liberation mono-medium-r-*-*-*-120-100-100-*-*-iso8859-1"
+          URxvt.font: -*-liberation mono-medium-r-*-*-*-120-100-100-*-*-iso8859-1
     - file:
         dest: "{{ item }}"
         state: directory

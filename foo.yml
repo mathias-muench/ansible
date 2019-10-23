@@ -1,0 +1,7 @@
+---
+# vi:ai:et:sw=2:ts=2
+
+- hosts: localhost
+  connection: local
+  roles:
+    - name: cloudflared-proxy-dns

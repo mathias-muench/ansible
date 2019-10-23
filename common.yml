@@ -1,0 +1,44 @@
+---
+# vi:ai:et:sw=2:ts=2
+
+- hosts: localhost
+  connection: local
+  become: True
+  tasks:
+    - user:
+        name: "{{ ansible_env.SUDO_USER }}"
+        groups: vboxsf
+        append: yes
+      when: ansible_virtualization_type == 'virtualbox'
+    - copy:
+        dest: /etc/locale.conf 
+        content: |
+          LANG=C
+    - timezone:
+        name: Europe/Berlin
+    - dnf:
+        name:
+          - git
+          - awscli
+          - python3-boto3
+          - python3-dns
+          - xsel
+          - clipit
+          - vim
+          - vim-X11
+          - rcs
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - copy:
+        dest: ~/.Xdefaults
+        content: |
+          URxvt.font: -*-liberation mono-medium-r-*-*-*-120-100-100-*-*-iso8859-1
+    - blockinfile:
+        dest: ~/.config/i3/config
+        content: |
+          # exec --no-startup-id xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10"
+          exec --no-startup-id clipit
+          # exec --no-startup-id dropbox start
+

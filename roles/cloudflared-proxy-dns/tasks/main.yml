@@ -1,0 +1,26 @@
+---
+# tasks file for cloudflared-proxy-dns
+
+- become: True
+  yum:
+    name: https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.rpm
+- become: True
+  copy:
+    dest: /etc/systemd/system/cloudflared-proxy-dns.service
+    content: |
+      [Unit]
+      Description=cloudflared proxy-dns
+
+      [Service]
+      Type=simple
+      EnvironmentFile=/etc/environment
+      ExecStart=/usr/local/bin/cloudflared proxy-dns
+
+      [Install]
+      WantedBy=multi-user.target
+- become: True
+  systemd:
+    name: cloudflared-proxy-dns
+    enabled: True
+    state: started
+    daemon_reload: True

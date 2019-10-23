@@ -27,6 +27,7 @@
           - vim
           - vim-X11
           - rcs
+          - pandoc
 
 - hosts: localhost
   connection: local

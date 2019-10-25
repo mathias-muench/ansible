@@ -48,3 +48,15 @@
     - copy:
         dest: ~/.vimrc
         src: dot/vimrc
+    - git_config:
+        name: alias.st
+        value: status -sb
+        scope: global
+    - git_config:
+        name: alias.dt
+        value: difftool
+        scope: global
+    - git_config:
+        name: alias.cl
+        value: clean -f -d
+        scope: global

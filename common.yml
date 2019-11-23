@@ -19,15 +19,24 @@
     - dnf:
         name:
           - git
+          - tig
           - awscli
           - python3-boto3
           - python3-dns
           - xsel
-          - clipit
+          - parcellite
           - vim
           - vim-X11
           - rcs
           - pandoc
+          - rpmdevtools
+          - mock
+          - rpkg
+          - jq
+    - user:
+        name: "{{ ansible_env.SUDO_USER }}"
+        groups: mock
+        append: yes
 
 - hosts: localhost
   connection: local
@@ -40,7 +49,7 @@
         dest: ~/.config/i3/config
         content: |
           # exec --no-startup-id xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10"
-          exec --no-startup-id clipit
+          exec --no-startup-id parcellite
           # exec --no-startup-id dropbox start
     - git:
         repo: https://github.com/VundleVim/Vundle.vim.git

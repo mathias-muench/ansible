@@ -37,6 +37,7 @@ Plugin 'pearofducks/ansible-vim'
 "Plugin 'racer-rust/vim-racer'
 Plugin 'chr4/nginx.vim'
 Plugin 'chr4/sslsecure.vim'
+Plugin 'ambv/black'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

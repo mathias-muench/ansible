@@ -3,5 +3,9 @@
 
 - hosts: localhost
   connection: local
+  module_defaults:
+    copy:
+      backup: True
   roles:
+    - name: cntlm
     - name: cloudflared-proxy-dns

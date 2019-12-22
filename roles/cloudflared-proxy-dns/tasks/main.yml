@@ -2,7 +2,7 @@
 # tasks file for cloudflared-proxy-dns
 
 - become: True
-  yum:
+  dnf:
     name: https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.rpm
 - become: True
   copy:

@@ -1,0 +1,5 @@
+---
+- listen: restart cntlm
+  systemd:
+    name: cntlm
+    state: restarted

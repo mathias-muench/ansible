@@ -1,0 +1,10 @@
+---
+- become: True
+  dnf:
+    name: cntlm
+- become: True
+  copy:
+    src: etc/cntlm.conf
+    dest: /etc/cntlm.conf
+  notify:
+    - restart cntlm

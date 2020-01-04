@@ -8,3 +8,16 @@
     dest: /etc/cntlm.conf
   notify:
     - restart cntlm
+- become: True
+  systemd:
+    name: cntlm
+    enabled: True
+    daemon_reload: True
+- become: True
+  lineinfile:
+    dest: /etc/environment
+    regex: "^{{ item.key }}="
+    line: "{{ item.key }}={{ item.value }}"
+  with_dict:
+    http_proxy: http://127.0.0.1:3128
+    https_proxy: http://127.0.0.1:3128

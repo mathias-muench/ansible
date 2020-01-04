@@ -7,5 +7,6 @@
     copy:
       backup: True
   roles:
+    - name: proxy
     - name: cntlm
     - name: cloudflared-proxy-dns

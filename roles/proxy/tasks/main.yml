@@ -1,0 +1,7 @@
+---
+# tasks file for proxy
+
+- become: True
+  copy:
+    src: etc/pki/tls/certs/BOSCH-CA_DE.pem
+    dest: /etc/pki/tls/certs/BOSCH-CA_DE.pem

@@ -1,0 +1,4 @@
+---
+- become: True
+  dnf:
+    name: azure-cli

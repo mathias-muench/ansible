@@ -10,3 +10,4 @@
     - name: proxy
     - name: cntlm
     - name: cloudflared-proxy-dns
+    - name: bosch__azure-cli

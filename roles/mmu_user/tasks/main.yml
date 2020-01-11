@@ -1,0 +1,38 @@
+---
+- blockinfile:
+    dest: ~/.bashrc
+    block: |
+      for i in $HOME/bashrc.d/*.sh
+      do
+          if test -r "$i"
+          then
+              if test -n "$PS1"
+              then
+                  . "$i"
+              else
+                  . "$i" >/dev/null
+              fi
+          fi
+      done
+- git_config:
+    name: alias.st
+    value: status -sb
+    scope: global
+- git_config:
+    name: alias.dt
+    value: difftool
+    scope: global
+- git_config:
+    name: alias.cl
+    value: clean -f -d
+    scope: global
+- git_config:
+    name: user.name
+    value: Mathias Muench
+    scope: local
+    repo: "{{ playbook_dir }}"
+- git_config:
+    name: user.email
+    value: mathias.muench@mathias-muench.de
+    scope: local
+    repo: "{{ playbook_dir }}"

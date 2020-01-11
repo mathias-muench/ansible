@@ -1,0 +1,27 @@
+---
+- tags: mmu_system
+  become: True
+  block:
+    - user:
+        name: "{{ ansible_user }}"
+        groups: vboxsf
+        append: yes
+
+    - dnf:
+        name:
+          - firefox
+- blockinfile:
+    dest: ~/.bashrc
+    block: |
+      for i in $HOME/bashrc.d/*.sh
+      do
+          if test -r "$i"
+          then
+              if test -n "$PS1"
+              then
+                  . "$i"
+              else
+                  . "$i" >/dev/null
+              fi
+          fi
+      done

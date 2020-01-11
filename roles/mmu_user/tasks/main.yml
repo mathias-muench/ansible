@@ -14,6 +14,12 @@
               fi
           fi
       done
+- git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+- copy:
+    dest: ~/.vimrc
+    src: _vimrc
 - git_config:
     name: alias.st
     value: status -sb
@@ -29,8 +35,7 @@
 - git_config:
     name: user.name
     value: Mathias Muench
-    scope: local
-    repo: "{{ playbook_dir }}"
+    scope: global
 - git_config:
     name: user.email
     value: mathias.muench@mathias-muench.de

@@ -2,7 +2,7 @@
 - blockinfile:
     dest: ~/.bashrc
     block: |
-      for i in $HOME/bashrc.d/*.sh
+      for i in $HOME/.bashrc.d/*.rc
       do
           if test -r "$i"
           then

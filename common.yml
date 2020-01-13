@@ -54,9 +54,6 @@
     - git:
         repo: https://github.com/VundleVim/Vundle.vim.git
         dest: ~/.vim/bundle/Vundle.vim
-    - copy:
-        dest: ~/.vimrc
-        src: dot/vimrc
     - git_config:
         name: alias.st
         value: status -sb

@@ -95,17 +95,7 @@
         repo: https://github.com/JamshedVesuna/vim-markdown-preview.git
         dest: ~/.vim/bundle/vim-markdown-preview
         accept_hostkey: yes
-    - lineinfile:
-        dest: ~/.vimrc
-        line: "{{ item }}"
-        create: yes
-      with_items:
-        - "execute pathogen#infect()"
-        - "let vim_markdown_preview_browser='Mozilla Firefox'"
-        - "let vim_markdown_preview_perl=1"
-        - "let vim_markdown_preview_use_xdg_open=1"
-        - 'let g:table_mode_corner="|"'
     - copy:
-        dest: ~/.bash/aws.rc
+        dest: ~/.bashrc.d/aws.rc
         content: |
           complete -C '/usr/bin/aws_completer' aws

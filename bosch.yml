@@ -12,19 +12,11 @@
     - name: cloudflared-proxy-dns
     - name: bosch__azure-cli
   tasks:
-    - slurp:
-        src: /usr/lib/python3.7/site-packages/botocore/cacert.pem
-      register: _cacert
-
     - become: True
-      file:
-        state: directory
-        path: /usr/local/lib/python3.7/site-packages/botocore/
-
+      blockinfile:
+        dest: /etc/pki/tls/certs/ca-bundle.crt
+        block: "{{ lookup('file', 'BOSCH-CA_DE.pem') }}"
     - become: True
-      copy:
-        dest: /usr/local/lib/python3.7/site-packages/botocore/cacert.pem
-        content: |
-          {{ _cacert['content'] | b64decode }}
-          {{ lookup('file', 'BOSCH-CA_DE.pem') }}
-
+      patch:
+        path: /usr/lib/python3.7/site-packages/boto/connection.py
+        patch: boto_connection.patch

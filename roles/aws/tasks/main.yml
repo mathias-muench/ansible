@@ -1,0 +1,7 @@
+---
+- become: True
+  yum:
+    name:
+      - awscli
+      - python3-dns
+      - python3-boto3

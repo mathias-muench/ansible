@@ -17,6 +17,22 @@
         dest: /etc/pki/tls/certs/ca-bundle.crt
         block: "{{ lookup('file', 'BOSCH-CA_DE.pem') }}"
     - become: True
+      blockinfile:
+        dest: /usr/lib/python3.7/site-packages/botocore/cacert.pem
+        block: "{{ lookup('file', 'BOSCH-CA_DE.pem') }}"
+    - become: True
+      blockinfile:
+        dest: /usr/lib/python3.7/site-packages/boto/cacerts/cacerts.txt
+        block: "{{ lookup('file', 'BOSCH-CA_DE.pem') }}"
+    - become: True
+      blockinfile:
+        dest: /usr/lib/python3.7/site-packages/botocore/vendored/requests/cacert.pem
+        block: "{{ lookup('file', 'BOSCH-CA_DE.pem') }}"
+    - become: True
+      dnf:
+        name:
+          - patch
+    - become: True
       patch:
-        path: /usr/lib/python3.7/site-packages/boto/connection.py
-        patch: boto_connection.patch
+        dest: /usr/lib/python3.7/site-packages/boto/connection.py
+        src: boto_connection.patch

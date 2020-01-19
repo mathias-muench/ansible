@@ -41,28 +41,3 @@
 - hosts: localhost
   connection: local
   tasks:
-    - copy:
-        dest: ~/.Xdefaults
-        content: |
-          URxvt.font: -*-liberation mono-medium-r-*-*-*-120-100-100-*-*-iso8859-1
-    - blockinfile:
-        dest: ~/.config/i3/config
-        content: |
-          # exec --no-startup-id xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10"
-          exec --no-startup-id parcellite
-          # exec --no-startup-id dropbox start
-    - git:
-        repo: https://github.com/VundleVim/Vundle.vim.git
-        dest: ~/.vim/bundle/Vundle.vim
-    - git_config:
-        name: alias.st
-        value: status -sb
-        scope: global
-    - git_config:
-        name: alias.dt
-        value: difftool
-        scope: global
-    - git_config:
-        name: alias.cl
-        value: clean -f -d
-        scope: global

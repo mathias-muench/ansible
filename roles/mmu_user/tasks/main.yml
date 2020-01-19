@@ -14,6 +14,13 @@
               fi
           fi
       done
+- blockinfile:
+    dest: ~/.config/i3/config
+    content: |
+      exec --no-startup-id parcellite
+- copy:
+    dest: ~/.Xdefaults
+    src: _Xdefaults
 - git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: ~/.vim/bundle/Vundle.vim

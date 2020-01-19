@@ -59,42 +59,9 @@
     - pip:
         name: grip
 
-    - alternatives:
-        link: /usr/bin/x-www-browser
-        name: x-www-browser
-        path: /usr/bin/firefox
-        priority: 100
-
-    - alternatives:
-        link: /usr/bin/gnome-www-browser
-        name: gnome-www-browser
-        path: /usr/bin/firefox
-        priority: 100
-
 - hosts: localhost
   connection: local
   tasks:
-    - copy:
-        dest: ~/.Xdefaults
-        content: |
-          URxvt.font: -*-liberation mono-medium-r-*-*-*-120-100-100-*-*-iso8859-1
-    - file:
-        dest: "{{ item }}"
-        state: directory
-      with_items:
-        - ~/.vim
-        - ~/.vim/autoload
-        - ~/.vim/bundle
-    - get_url:
-        url: https://tpo.pe/pathogen.vim
-        dest: ~/.vim/autoload/pathogen.vim
-    - git:
-        repo: git@github.com:dhruvasagar/vim-table-mode.git
-        dest: ~/.vim/bundle/table-mode
-    - git:
-        repo: https://github.com/JamshedVesuna/vim-markdown-preview.git
-        dest: ~/.vim/bundle/vim-markdown-preview
-        accept_hostkey: yes
     - copy:
         dest: ~/.bashrc.d/aws.rc
         content: |

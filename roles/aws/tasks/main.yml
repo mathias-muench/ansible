@@ -1,7 +1,19 @@
 ---
 - become: True
+  yum_repository:
+    name: copr:copr.fedorainfracloud.org:mmu:credstash-rpm
+    description: Copr repo for credstash-rpm owned by mmu
+    baseurl: https://copr-be.cloud.fedoraproject.org/results/mmu/credstash-rpm/fedora-$releasever-$basearch/
+    skip_if_unavailable: True
+    gpgcheck: 1
+    gpgkey: https://copr-be.cloud.fedoraproject.org/results/mmu/credstash-rpm/pubkey.gpg
+    repo_gpgcheck: 0
+    enabled: 1
+
+- become: True
   yum:
     name:
       - awscli
       - python3-dns
       - python3-boto3
+      - python3-credstash

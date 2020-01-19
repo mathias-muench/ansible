@@ -40,6 +40,10 @@
     value: clean -f -d
     scope: global
 - git_config:
+    name: diff.tool
+    value: vimdiff
+    scope: global
+- git_config:
     name: user.name
     value: Mathias Muench
     scope: global

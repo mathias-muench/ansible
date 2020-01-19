@@ -7,10 +7,10 @@
     copy:
       backup: True
   roles:
-    - name: proxy
-    - name: cntlm
+    #- name: proxy
+    #- name: cntlm
     - name: cloudflared-proxy-dns
-    - name: bosch__azure-cli
+    #- name: bosch__azure-cli
   tasks:
     - become: True
       blockinfile:

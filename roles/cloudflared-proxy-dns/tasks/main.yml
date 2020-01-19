@@ -24,3 +24,15 @@
     enabled: True
     state: started
     daemon_reload: True
+- become: True
+  lineinfile:
+    dest: /etc/sysconfig/network-scripts/ifcfg-eth0
+    regex: "^{{ item.key }}="
+    line: "{{ item.key }}={{ item.value }}"
+  with_dict:
+    PEERDNS: no
+    DNS1: 127.0.0.1
+- become: True
+  systemd:
+    name: NetworkManager
+    state: restarted

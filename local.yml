@@ -30,7 +30,6 @@
           - vim
           - perl-Text-Markdown
           - xdotool
-          - awscli
           - pandoc
           - libselinux-python
           - xsel
@@ -58,11 +57,3 @@
 
     - pip:
         name: grip
-
-- hosts: localhost
-  connection: local
-  tasks:
-    - copy:
-        dest: ~/.bashrc.d/aws.rc
-        content: |
-          complete -C '/usr/bin/aws_completer' aws

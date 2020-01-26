@@ -14,13 +14,10 @@
         dest: /etc/locale.conf 
         content: |
           LANG=C
-    - timezone:
-        name: Europe/Berlin
     - dnf:
         name:
           - git
           - tig
-          - awscli
           - xsel
           - parcellite
           - vim

@@ -11,9 +11,15 @@
     enabled: 1
 
 - become: True
-  yum:
+  dnf:
     name:
       - awscli
       - python3-dns
       - python3-boto3
       - python3-credstash
+
+- become: True
+  copy:
+    dest: /etc/profile.d/aws.sh
+    content: |
+      complete -C /usr/bin/aws_completer aws

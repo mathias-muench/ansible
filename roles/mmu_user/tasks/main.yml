@@ -21,6 +21,9 @@
 - copy:
     dest: ~/.Xdefaults
     src: _Xdefaults
+- copy:
+    dest: ~/.bashrc.d/
+    src: _bashrc.d/cli.rc
 - git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: ~/.vim/bundle/Vundle.vim

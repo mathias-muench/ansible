@@ -18,21 +18,9 @@
         name:
           - git
           - tig
-          - xsel
-          - parcellite
-          - vim
-          - vim-X11
           - rcs
           - pandoc
-          - rpmdevtools
-          - mock
-          - rpkg
           - jq
-    - user:
-        name: "{{ ansible_env.SUDO_USER }}"
-        groups: mock
-        append: yes
-
 - hosts: localhost
   connection: local
   tasks:

@@ -41,7 +41,6 @@
           - jq
           - graphviz
           - okular
-          - rpmdevtools
           - NetworkManager-openvpn
           - certbot
           - python3-certbot-dns-route53

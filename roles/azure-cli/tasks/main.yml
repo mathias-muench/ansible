@@ -10,4 +10,6 @@
 
 - become: True
   dnf:
-    name: azure-cli
+    name:
+      - azure-cli
+      - python3-azure-sdk

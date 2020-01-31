@@ -1,0 +1,14 @@
+---
+- become: True
+  dnf:
+    name:
+      - rpmdevtools
+      - mock
+      - rpkg
+
+- become: True
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: mock
+    append: yes
+

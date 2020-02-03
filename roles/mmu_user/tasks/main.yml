@@ -24,6 +24,9 @@
 - copy:
     dest: ~/.bashrc.d/
     src: _bashrc.d/cli.rc
+- copy:
+    dest: ~/.bashrc.d/
+    src: _bashrc.d/git.rc
 - git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: ~/.vim/bundle/Vundle.vim

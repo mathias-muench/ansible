@@ -25,4 +25,26 @@
     HTTPS_PROXY: http://127.0.0.1:3128
     NO_PROXY: localhost,127.0.0.1
     no_proxy: localhost,127.0.0.1
+- become: True
+  copy:
+    dest: /etc/profile.d/proxy.sh
+    content: |
+      export HTTP_PROXY=http://127.0.0.1:3128/
+      export http_proxy=http://127.0.0.1:3128/
+      export HTTPS_PROXY=http://127.0.0.1:3128/
+      export https_proxy=http://127.0.0.1:3128/
+      export NO_PROXY="localhost,127.0.0.1"
+      export no_proxy="localhost,127.0.0.1"
+- become: True
+  lineinfile:
+    dest: /etc/environment
+    regex: "^{{ item.key }}="
+    line: "{{ item.key }}={{ item.value }}"
+  with_dict:
+    http_proxy: http://127.0.0.1:3128
+    HTTP_PROXY: http://127.0.0.1:3128
+    https_proxy: http://127.0.0.1:3128
+    HTTPS_PROXY: http://127.0.0.1:3128
+    NO_PROXY: localhost,127.0.0.1
+    no_proxy: localhost,127.0.0.1
 

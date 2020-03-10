@@ -24,6 +24,9 @@
 - copy:
     dest: ~/.bashrc.d/
     src: _bashrc.d/cli.rc
+- become: True
+  dnf:
+    name: tig
 - copy:
     dest: ~/.bashrc.d/
     src: _bashrc.d/git.rc

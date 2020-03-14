@@ -1,0 +1,10 @@
+---
+# vi:ai:et:sw=2:ts=2
+
+- hosts: localhost
+  connection: local
+  module_defaults:
+    copy:
+      backup: True
+  roles:
+    - name: extras

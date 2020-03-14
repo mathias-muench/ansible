@@ -1,0 +1,15 @@
+---
+- become: True
+  dnf:
+    name: NetworkManager-openconnect
+
+- become: True
+  copy:
+    dest: /etc/pki/tls/VeriSignClass3PublicPrimaryCertificationAuthority-G5.pem
+    src: VeriSignClass3PublicPrimaryCertificationAuthority-G5.pem
+
+- become: True
+  copy:
+    dest: /etc/NetworkManager/system-connections/VPN-Verbindung 1
+    src: VPN-Verbindung 1
+    mode: o=rw-,g=---,o=---

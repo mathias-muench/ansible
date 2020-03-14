@@ -1,7 +1,9 @@
-Role Name
-=========
+ExtRAS VPN
+==========
 
-A brief description of the role goes here.
+Start with `nmcli --ask connection up VPN-Verbindung\ 1`
+
+Configure `rb-proxy-ext.bosch.com:8080` as proxy in browser.
 
 Requirements
 ------------

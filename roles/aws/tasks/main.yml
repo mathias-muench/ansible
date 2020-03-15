@@ -11,6 +11,7 @@
     enabled: 1
 
 - become: True
+  tags: extdep
   dnf:
     name:
       - awscli

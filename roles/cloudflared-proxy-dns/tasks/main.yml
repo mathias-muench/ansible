@@ -2,6 +2,7 @@
 # tasks file for cloudflared-proxy-dns
 
 - become: True
+  tags: extdep
   dnf:
     name: https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.rpm
 - become: True
@@ -25,6 +26,7 @@
     state: started
     daemon_reload: True
 - become: True
+  notify: restart NetworkManager
   lineinfile:
     dest: /etc/sysconfig/network-scripts/ifcfg-eth0
     regex: "^{{ item.key }}="
@@ -32,7 +34,3 @@
   with_dict:
     PEERDNS: no
     DNS1: 127.0.0.1
-- become: True
-  systemd:
-    name: NetworkManager
-    state: restarted

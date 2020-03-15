@@ -6,6 +6,8 @@
   module_defaults:
     copy:
       backup: True
+    ini_file:
+      backup: True
   roles:
     #- name: proxy
     - name: cntlm

@@ -1,40 +1,22 @@
 ---
 - become: True
+  tags: extdep
   dnf:
     name: cntlm
+
 - become: True
   copy:
     src: etc/cntlm.conf
     dest: /etc/cntlm.conf
   notify:
     - restart cntlm
+
 - become: True
   systemd:
     name: cntlm
     enabled: True
     daemon_reload: True
-- become: True
-  lineinfile:
-    dest: /etc/environment
-    regex: "^{{ item.key }}="
-    line: "{{ item.key }}={{ item.value }}"
-  with_dict:
-    http_proxy: http://127.0.0.1:3128
-    HTTP_PROXY: http://127.0.0.1:3128
-    https_proxy: http://127.0.0.1:3128
-    HTTPS_PROXY: http://127.0.0.1:3128
-    NO_PROXY: localhost,127.0.0.1
-    no_proxy: localhost,127.0.0.1
-- become: True
-  copy:
-    dest: /etc/profile.d/proxy.sh
-    content: |
-      export HTTP_PROXY=http://127.0.0.1:3128/
-      export http_proxy=http://127.0.0.1:3128/
-      export HTTPS_PROXY=http://127.0.0.1:3128/
-      export https_proxy=http://127.0.0.1:3128/
-      export NO_PROXY="localhost,127.0.0.1"
-      export no_proxy="localhost,127.0.0.1"
+
 - become: True
   lineinfile:
     dest: /etc/environment
@@ -48,3 +30,28 @@
     NO_PROXY: localhost,127.0.0.1
     no_proxy: localhost,127.0.0.1
 
+- become: True
+  copy:
+    dest: /etc/profile.d/proxy.sh
+    content: |
+      export HTTP_PROXY=http://127.0.0.1:3128/
+      export http_proxy=http://127.0.0.1:3128/
+      export HTTPS_PROXY=http://127.0.0.1:3128/
+      export https_proxy=http://127.0.0.1:3128/
+      export NO_PROXY=localhost,127.0.0.1
+      export no_proxy=localhost,127.0.0.1
+
+- become: True
+  ini_file:
+    path: /etc/yum.conf
+    section: main
+    option: proxy
+    value: http://127.0.0.1:3128
+
+- become: True
+  git_config:
+    name: "{{ item }}.proxy"
+    value: http://127.0.0.1:3128
+  with_items:
+    - http
+    - https

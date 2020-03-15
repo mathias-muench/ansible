@@ -1,2 +1,6 @@
 ---
-# handlers file for cloudflared-proxy-dns
+- name: restart NetworkManager
+  become: True
+  systemd:
+    name: NetworkManager
+    state: restarted

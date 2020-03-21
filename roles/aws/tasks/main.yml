@@ -1,4 +1,5 @@
 ---
+
 - become: True
   yum_repository:
     name: copr:copr.fedorainfracloud.org:mmu:credstash-rpm
@@ -18,9 +19,13 @@
       - python3-dns
       - python3-boto3
       - python3-credstash
+      - certbot-dns-route53
 
 - become: True
   copy:
     dest: /etc/profile.d/aws.sh
     content: |
       complete -C /usr/bin/aws_completer aws
+
+- import_tasks: proxy.yml
+  when: lookup('env', 'http_proxy')

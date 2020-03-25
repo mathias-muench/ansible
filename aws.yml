@@ -10,5 +10,24 @@
       backup: True
   roles:
     - role: aws
-#    - name: bosch__azure-cli
+    - name: bosch__azure-cli
 #    - name: rpmdevtools
+  tasks:
+    - become: True
+      yum_repository:
+        name: copr:copr.fedorainfracloud.org:mmu:mmu-dist-rpms
+        description: Copr repo for mmu-dist-rpms owned by mmu
+        baseurl: https://download.copr.fedorainfracloud.org/results/mmu/mmu-dist-rpms/fedora-$releasever-$basearch/
+        skip_if_unavailable: True
+        gpgcheck: 1
+        gpgkey: https://download.copr.fedorainfracloud.org/results/mmu/mmu-dist-rpms/pubkey.gpg
+        repo_gpgcheck: 0
+        enabled: 1
+
+    - become: True
+      tags: extdep
+      dnf:
+        name:
+          - terraform-dist
+          - packer-dist
+          - pandoc-dist

@@ -11,7 +11,7 @@
   roles:
     - role: aws
     - name: bosch__azure-cli
-#    - name: rpmdevtools
+    - name: rpmdevtools
   tasks:
     - become: True
       yum_repository:

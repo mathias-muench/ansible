@@ -24,7 +24,8 @@
 - copy:
     dest: ~/.bashrc.d/
     src: _bashrc.d/cli.rc
-- become: True
+- tags: extdep
+  become: True
   dnf:
     name: tig
 - copy:
@@ -47,6 +48,14 @@
 - git_config:
     name: alias.cl
     value: clean -f -d
+    scope: global
+- git_config:
+    name: alias.ad
+    value: add -uv
+    scope: global
+- git_config:
+    name: alias.co
+    value: commit
     scope: global
 - git_config:
     name: diff.tool

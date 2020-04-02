@@ -27,12 +27,12 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'michaeljsmith/vim-indent-object'
 "Plugin 'godlygeek/tabular'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'pearofducks/ansible-vim'
-"Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'dhruvasagar/vim-table-mode'
 "Plugin 'chrisbra/csv.vim'
 "Plugin 'racer-rust/vim-racer'
 Plugin 'chr4/nginx.vim'
@@ -55,7 +55,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Plugin 'pearofducks/ansible-vim'
-let g:ansible_options = {'ignore_blank_lines': 0}
+let g:ansible_unindent_after_newline = 1
 
 set path+=**
 set wildmode=longest,list,full
@@ -71,8 +71,10 @@ endif
 augroup vimrc
     autocmd!
     autocmd BufRead,BufNewFile *.json.j2 set filetype=json.jinja2
+    autocmd FileType html,html.* setlocal shiftwidth=2 tabstop=2 noexpandtab autoindent
     autocmd FileType json,json.*,yaml,yaml.* setlocal shiftwidth=2 tabstop=2 expandtab autoindent
     autocmd FileType python,jinja setlocal shiftwidth=4 tabstop=4 expandtab autoindent
+    autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 expandtab autoindent
 augroup END
 
 " ansible role mode

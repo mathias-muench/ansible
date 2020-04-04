@@ -54,8 +54,12 @@
     value: add -uv
     scope: global
 - git_config:
-    name: alias.co
+    name: alias.ci
     value: commit
+    scope: global
+- git_config:
+    name: alias.rb
+    value: rebase -i
     scope: global
 - git_config:
     name: diff.tool

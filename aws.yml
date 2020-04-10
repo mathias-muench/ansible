@@ -10,7 +10,7 @@
       backup: True
   roles:
     - role: aws
-    - name: bosch__azure-cli
+    - name: azure-cli
     - name: rpmdevtools
   tasks:
     - become: True

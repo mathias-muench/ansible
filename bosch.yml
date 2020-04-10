@@ -1,5 +1,4 @@
 ---
-# vi:ai:et:sw=2:ts=2
 
 - hosts: localhost
   connection: local
@@ -11,6 +10,5 @@
     ini_file:
       backup: True
   roles:
-    #- name: proxy
     - name: cntlm
     - name: cloudflared-proxy-dns

@@ -22,10 +22,26 @@
       - certbot-dns-route53
 
 - become: True
+  tags: extdep
+  dnf:
+    name:
+      - patch
+
+- become: True
+  patch:
+    dest: /usr/lib/python3.7/site-packages/boto/connection.py
+    src: boto_connection.patch
+
+- become: True
   copy:
     dest: /etc/profile.d/aws.sh
     content: |
       complete -C /usr/bin/aws_completer aws
 
-- import_tasks: proxy.yml
+- import_role:
+    role: proxy
+  vars:
+    proxy_ca_files:
+      - /usr/lib/python3.7/site-packages/botocore/cacert.pem
+      - /usr/lib/python3.7/site-packages/boto/cacerts/cacerts.txt
   when: lookup('env', 'http_proxy')

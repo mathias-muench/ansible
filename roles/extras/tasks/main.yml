@@ -13,3 +13,4 @@
     dest: /etc/NetworkManager/system-connections/VPN-Verbindung 1
     src: VPN-Verbindung 1
     mode: o=rw-,g=---,o=---
+  notify: restart NetworkManager

@@ -1,0 +1,52 @@
+---
+
+- tags: extdep
+  become: True
+  dnf:
+    name: tig
+
+- git_config:
+    name: alias.st
+    value: status -sb
+    scope: global
+
+- git_config:
+    name: alias.dt
+    value: difftool
+    scope: global
+
+- git_config:
+    name: alias.cl
+    value: clean -f -d
+    scope: global
+
+- git_config:
+    name: alias.ad
+    value: add -uv
+    scope: global
+
+- git_config:
+    name: alias.ci
+    value: commit
+    scope: global
+
+- git_config:
+    name: alias.rb
+    value: rebase -i
+    scope: global
+
+- git_config:
+    name: diff.tool
+    value: vimdiff
+    scope: global
+
+- git_config:
+    name: user.name
+    value: Mathias Muench
+    scope: global
+
+- git_config:
+    name: user.email
+    value: mathias.muench@mathias-muench.de
+    scope: local
+    repo: "{{ playbook_dir }}"

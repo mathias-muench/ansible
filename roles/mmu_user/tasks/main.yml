@@ -35,3 +35,13 @@
     src: _vimrc
 
 - import_tasks: git.yml
+
+- tags: extdep
+  become: True
+  dnf:
+    name:
+      - pandoc-dist
+      - java
+      - plantuml
+      - graphviz
+

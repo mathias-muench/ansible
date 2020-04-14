@@ -1,5 +1,5 @@
+#! /usr/bin/ansible-playbook
 ---
-# vi:ai:et:sw=2:ts=2
 
 - hosts: localhost
   connection: local

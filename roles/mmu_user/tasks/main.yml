@@ -44,4 +44,6 @@
       - java
       - plantuml
       - graphviz
+      - ansible-lint
+      - texlive
 

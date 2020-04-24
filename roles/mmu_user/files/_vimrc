@@ -27,6 +27,7 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+"Plugin 'groovy.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'michaeljsmith/vim-indent-object'
 "Plugin 'godlygeek/tabular'
@@ -75,7 +76,7 @@ set wildmode=longest,list,full
 set wildmenu
 
 set hidden
-map ZZ :mksession! ~/.vimsession.vim<CR>:xa<CR>
+" map ZZ :mksession! ~/.vimsession.vim<CR>:xa<CR>
 
 if &diff
     syntax off
@@ -84,10 +85,12 @@ endif
 augroup vimrc
     autocmd!
     autocmd BufRead,BufNewFile *.json.j2 set filetype=json.jinja2
+    autocmd BufRead,BufNewFile Jenkinsfile_* set filetype=groovy
     autocmd FileType html,html.* setlocal shiftwidth=2 tabstop=2 noexpandtab autoindent
     autocmd FileType json,json.*,yaml,yaml.* setlocal shiftwidth=2 tabstop=2 expandtab autoindent
     autocmd FileType python,jinja setlocal shiftwidth=4 tabstop=4 expandtab autoindent
     autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 expandtab autoindent
+    autocmd FileType groovy setlocal shiftwidth=4 tabstop=4 expandtab autoindent
 augroup END
 
 " ansible role mode

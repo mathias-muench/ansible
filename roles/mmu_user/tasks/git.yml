@@ -46,6 +46,11 @@
     scope: global
 
 - git_config:
+    name: credential.helper
+    value: cache --timeout 3600
+    scope: global
+
+- git_config:
     name: user.email
     value: mathias.muench@mathias-muench.de
     scope: local

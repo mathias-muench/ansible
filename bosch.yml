@@ -12,4 +12,3 @@
       backup: True
   roles:
     - name: cntlm
-    - name: cloudflared-proxy-dns

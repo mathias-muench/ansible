@@ -22,6 +22,12 @@
       - certbot-dns-route53
 
 - become: True
+  copy:
+    dest: /etc/profile.d/aws.sh
+    content: |
+      complete -C '/usr/bin/aws_completer' aws
+
+- become: True
   tags: extdep
   dnf:
     name:

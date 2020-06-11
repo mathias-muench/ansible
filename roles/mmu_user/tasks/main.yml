@@ -27,18 +27,22 @@
 - copy:
     dest: ~/.bashrc.d/
     src: _bashrc.d/git.rc
-- git:
-    repo: https://github.com/VundleVim/Vundle.vim.git
-    dest: ~/.vim/bundle/Vundle.vim
-- copy:
-    dest: ~/.vimrc
-    src: _vimrc
+
+- import_tasks: vim.yml
 
 - import_tasks: git.yml
+
+- name: Enable Fedora Copr for mmu-dist-rpms
+  become: True
+  command:
+    cmd: dnf copr enable -y mmu/mmu-dist-rpms
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:mmu:mmu-dist-rpms.repo
+    warn: False
 
 - tags: extdep
   become: True
   dnf:
+    enablerepo: mmu/mmu-dist-rpms
     name:
       - pandoc-dist
       - java

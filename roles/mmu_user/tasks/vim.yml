@@ -1,0 +1,28 @@
+---
+
+- tags: extdep
+  become: True
+  dnf:
+    name: vim
+
+- blockinfile:
+    path: ~/.vimrc
+    create: True
+    block: "{{ lookup('file', '_vimrc') }}"
+    marker: '" {mark} _vimrc'
+
+- git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- copy:
+    dest: ~/.vim/vundle.vim
+    src: vundle.vim
+
+- blockinfile:
+    path: ~/.vimrc
+    create: True
+    block: |
+      runtime vundle.vim
+    marker: '" {mark} vundle.vim'
+    insertbefore: BOF

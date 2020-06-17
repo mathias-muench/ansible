@@ -1,3 +1,6 @@
+" Plugin 'thaerkh/vim-workspace'
+let g:workspace_autocreate = 1
+
 " Plugin 'pearofducks/ansible-vim'
 let g:ansible_unindent_after_newline = 1
 

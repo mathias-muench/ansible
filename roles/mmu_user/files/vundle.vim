@@ -41,6 +41,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-sensible'
+Plugin 'thaerkh/vim-workspace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

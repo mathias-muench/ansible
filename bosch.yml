@@ -1,4 +1,4 @@
-#! /usr/bin/ansible-playbook
+#! /usr/bin/ansible-playbook -i localhost,
 ---
 
 - hosts: localhost

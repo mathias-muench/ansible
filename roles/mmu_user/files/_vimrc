@@ -12,9 +12,6 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 
 " Plugin 'tpope/vim-sensible'
-" set path+=**
-" set wildmode=longest,list,full
-
 set hidden
 
 if has("gui_running")
@@ -33,24 +30,6 @@ augroup vimrc
     autocmd FileType json,json.*,yaml,yaml.* setlocal shiftwidth=2 tabstop=2 expandtab autoindent
     autocmd FileType python,jinja setlocal shiftwidth=4 tabstop=4 expandtab autoindent
     autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 expandtab autoindent
+    autocmd BufRead,BufNewFile Jenkinsfile* set filetype=groovy
+    autocmd FileType groovy setlocal shiftwidth=4 tabstop=4 expandtab autoindent
 augroup END
-
-" ansible role mode
-if argc() >= 1 && argv()[0] =~ 'roles/.*/$'
-	echo 'ansible role mode: '
-	set suffixesadd=.yml
-	let x = argv()[0]
-	execute 'args' join(glob(x.'{tasks,defaults,vars,meta,handlers}/*.yml', 0, 1))
-    execute 'cd' x
-	set path+=files/**
-	set path+=templates/**
-endif
-
-if argc() >= 1 && argv()[0] =~ '^inv'
-	set path+=./host_vars/
-	set path+=./group_vars/
-	set path+=./*/host_vars/
-	set path+=./*/group_vars/
-	set isfname+=@-@
-	set suffixesadd=.yml
-endif

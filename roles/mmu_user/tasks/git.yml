@@ -3,7 +3,13 @@
 - tags: extdep
   become: True
   dnf:
-    name: tig
+    name:
+      - git
+      - tig
+
+- copy:
+    dest: ~/.bashrc.d/
+    src: _bashrc.d/git.rc
 
 - git_config:
     name: alias.st

@@ -14,25 +14,18 @@
               fi
           fi
       done
-- blockinfile:
-    dest: ~/.config/i3/config
-    content: |
-      exec --no-startup-id parcellite
-- copy:
-    dest: ~/.Xdefaults
-    src: _Xdefaults
+
 - copy:
     dest: ~/.bashrc.d/
     src: _bashrc.d/cli.rc
-- copy:
-    dest: ~/.bashrc.d/
-    src: _bashrc.d/git.rc
-
-- import_tasks: vim.yml
 
 - import_tasks: git.yml
 
-- name: Enable Fedora Copr for mmu-dist-rpms
+- import_tasks: vim.yml
+
+- import_tasks: x11.yml
+
+- tags: extdep
   become: True
   command:
     cmd: dnf copr enable -y mmu/mmu-dist-rpms
@@ -48,6 +41,5 @@
       - java
       - plantuml
       - graphviz
-      - ansible-lint
       - texlive
 

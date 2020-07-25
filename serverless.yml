@@ -1,0 +1,15 @@
+#! /usr/bin/ansible-playbook -i localhost,
+---
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - become: True
+      dnf:
+        name: npm
+    - become: True
+      npm:
+        name: serverless
+        global: True

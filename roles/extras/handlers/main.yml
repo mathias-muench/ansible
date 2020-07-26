@@ -1,6 +1,6 @@
 ---
-- name: restart NetworkManager
+
+- name: reload systemd
   become: True
   systemd:
-    name: NetworkManager
-    state: restarted
+    daemon-reload: True

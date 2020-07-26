@@ -1,16 +1,33 @@
 ---
-- become: True
+
+- tags: extdep
+  become: True
   dnf:
-    name: NetworkManager-openconnect
+    name: openconnect
+
+- copy:
+    dest: loc_vpnc.pp
+    src: loc_vpnc.pp
+
+- become: True
+  register: semodule_list
+  check_mode: False
+  changed_when: False
+  command: |
+    semodule -l
+
+- become: True
+  loop: "{{ [ 'loc_vpnc' ] | difference(semodule_list.stdout_lines) }}"
+  command: |
+    semodule -i {{ item }}.pp
 
 - become: True
   copy:
-    dest: /etc/pki/tls/VeriSignClass3PublicPrimaryCertificationAuthority-G5.pem
-    src: VeriSignClass3PublicPrimaryCertificationAuthority-G5.pem
+    dest: /etc/pki/tls/certs/35e514f6.pem
+    src: 35e514f6.pem
 
 - become: True
   copy:
-    dest: /etc/NetworkManager/system-connections/VPN-Verbindung 1
-    src: VPN-Verbindung 1
-    mode: o=rw-,g=---,o=---
-  notify: restart NetworkManager
+    dest: /etc/systemd/system/extras@.service
+    src: extras@.service
+  notify: reload systemd

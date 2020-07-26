@@ -10,10 +10,29 @@
       - vim-X11
       - firefox
 
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.config/parcellite/parcelliterc
+
+- copy:
+    dest: ~/.config/parcellite/parcelliterc
+    src: parcelliterc
+
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.config/i3/config
+
 - blockinfile:
     dest: ~/.config/i3/config
     content: |
       exec --no-startup-id parcellite
+
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.Xdefaults
 
 - copy:
     dest: ~/.Xdefaults

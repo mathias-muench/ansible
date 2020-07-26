@@ -5,11 +5,21 @@
   dnf:
     name: vim
 
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.vimrc
+
 - blockinfile:
     path: ~/.vimrc
     create: True
     block: "{{ lookup('file', '_vimrc') }}"
     marker: '" {mark} _vimrc'
+
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.vim/
 
 - git:
     repo: https://github.com/VundleVim/Vundle.vim.git

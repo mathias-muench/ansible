@@ -1,4 +1,10 @@
 ---
+
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.bashrc
+
 - blockinfile:
     dest: ~/.bashrc
     block: |
@@ -14,6 +20,11 @@
               fi
           fi
       done
+
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.bashrc.d/
 
 - copy:
     dest: ~/.bashrc.d/

@@ -1,0 +1,15 @@
+#! /usr/bin/ansible-playbook
+---
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - git:
+        repo: git@gitlab.int.cbsdev.net:cbs/{{ item }}.git
+        dest: ~/{{ item }}
+      with_items: "{{ repos }}"
+      vars:
+        repos:
+          - video_cloud

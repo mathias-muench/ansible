@@ -52,5 +52,6 @@
       - java
       - plantuml
       - graphviz
+      - okular
       - texlive
 

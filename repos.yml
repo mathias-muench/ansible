@@ -13,3 +13,6 @@
       vars:
         repos:
           - video_cloud
+          - video_cloud_tools
+          - operations
+          - cbs_pipeline_common

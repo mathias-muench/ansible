@@ -30,6 +30,10 @@
     dest: ~/.bashrc.d/
     src: _bashrc.d/cli.rc
 
+- copy:
+    dest: ~/.bashrc.d/
+    src: _bashrc.d/ruby.rc
+
 - import_tasks: git.yml
 
 - import_tasks: vim.yml

@@ -1,0 +1,15 @@
+#! /usr/bin/ansible-playbook
+---
+
+- hosts: localhost
+  connection: local
+  vars:
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  tasks:
+    - become: True
+      dnf:
+        name:
+          - ruby
+          - ruby-devel
+          - '@development-tools'
+          - rubygem-jekyll

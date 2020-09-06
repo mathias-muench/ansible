@@ -1,3 +1,0 @@
-[Service]
-Type=forking
-ExecStart=%s -c '/usr/bin/systemd-ask-password "PASSCODE:"| /usr/sbin/openconnect --background --user %I --passwd-on-stdin --cafile /etc/pki/tls/certs/35e514f6.pem rasvpn-ext-emea.bosch.com/rbextssl'

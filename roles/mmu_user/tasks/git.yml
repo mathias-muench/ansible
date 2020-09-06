@@ -61,3 +61,16 @@
     value: mathias.muench@mathias-muench.de
     scope: local
     repo: "{{ playbook_dir }}"
+
+- git_config:
+    name: core.excludesfile
+    value: ~/.gitignore
+    scope: global
+
+- copy:
+    dest: ~/.gitignore
+    content: |
+      .undodir
+      Session.vim
+      .*.swp
+

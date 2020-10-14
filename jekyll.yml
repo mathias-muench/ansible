@@ -9,7 +9,5 @@
     - become: True
       dnf:
         name:
-          - ruby
           - ruby-devel
-          - '@development-tools'
-          - rubygem-jekyll
+          - rubygem-bundler

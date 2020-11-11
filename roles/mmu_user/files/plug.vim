@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-sensible'
-Plug 'thaerkh/vim-workspace'
+"Plug 'thaerkh/vim-workspace'
+Plug 'aklt/plantuml-syntax'
 
 call plug#end()

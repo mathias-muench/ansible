@@ -19,7 +19,7 @@
 - lineinfile:
     path: ~/.tar-exclude
     create: True
-    line: ./.vim/
+    line: ./.vim
 
 - file:
     state: directory

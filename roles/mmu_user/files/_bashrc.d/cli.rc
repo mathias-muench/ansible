@@ -2,10 +2,9 @@ set -o vi
 
 alias h='history'
 alias r='fc -e -'
-alias v='vim -S ~/.vimsession.vim'
-alias g='gvim -S ~/.vimsession.vim'
 function lv { vim "+lv /$1/ ***"; }
 
+trap 'history -w ~/.local/share/bash_history' EXIT
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 HISTSIZE=100000
 HISTFILESIZE=1000000

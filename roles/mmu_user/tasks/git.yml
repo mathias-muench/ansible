@@ -9,7 +9,7 @@
 
 - copy:
     dest: ~/.bashrc.d/
-    src: _bashrc.d/git.rc
+    src: _bashrc.d/git.sh
 
 - git_config:
     name: alias.st

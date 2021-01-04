@@ -8,7 +8,7 @@
 - blockinfile:
     dest: ~/.bashrc
     block: |
-      for i in $HOME/.bashrc.d/*.rc
+      for i in $HOME/.bashrc.d/*.sh
       do
           if test -r "$i"
           then
@@ -28,11 +28,11 @@
 
 - copy:
     dest: ~/.bashrc.d/
-    src: _bashrc.d/cli.rc
+    src: _bashrc.d/cli.sh
 
 - copy:
     dest: ~/.bashrc.d/
-    src: _bashrc.d/ruby.rc
+    src: _bashrc.d/ruby.sh
 
 - import_tasks: git.yml
 

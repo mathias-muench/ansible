@@ -1,6 +1,0 @@
----
-- become: True
-  listen: restart cntlm
-  systemd:
-    name: cntlm
-    state: restarted

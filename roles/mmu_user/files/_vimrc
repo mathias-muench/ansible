@@ -1,3 +1,24 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'davidhalter/jedi-vim'
+Plug 'ambv/black'
+Plug 'pearofducks/ansible-vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'junegunn/vim-easy-align'
+"Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
+"Plug 'chrisbra/csv.vim'
+Plug 'chr4/nginx.vim'
+Plug 'chr4/sslsecure.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-sensible'
+"Plug 'thaerkh/vim-workspace'
+Plug 'aklt/plantuml-syntax'
+
+call plug#end()
+
 " Plugin 'thaerkh/vim-workspace'
 let g:workspace_autocreate = 1
 
@@ -14,8 +35,15 @@ let g:syntastic_check_on_wq = 1
 set hidden
 
 if has("gui_running")
-  set visualbell
+  set guioptions-=m " Turn off menubar
+  set guioptions-=T " Turn off toolbar
+  set guioptions-=r " Turn off right-hand scrollbar
+  set guioptions-=R " Turn off right-hand scrollbar when split
+  set guioptions-=L " Turn off left-hand scrollbar
+  set guioptions-=l " Turn off left-hand=scrollbar when split
+  set guicursor+=a:blinkon0 " Turn off blinking cursor
   set guifont=Fira\ Mono\ 12
+  set visualbell
 endif
 
 if &diff

@@ -43,7 +43,7 @@
 
 - git_config:
     name: alias.fe
-    value: fetch --prune
+    value: fetch --prune --tags
     scope: global
 
 - git_config:

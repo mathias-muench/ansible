@@ -3,7 +3,16 @@
 - tags: extdep
   become: True
   dnf:
-    name: vim
+    name:
+      - nano-default-editor
+    state: absent
+
+- tags: extdep
+  become: True
+  dnf:
+    name:
+      - vim
+      - vim-default-editor
 
 - lineinfile:
     path: ~/.tar-exclude

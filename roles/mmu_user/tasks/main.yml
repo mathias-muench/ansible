@@ -58,5 +58,10 @@
       - graphviz
       - okular
       - texlive
+      - texlive-tcolorbox
+      - texlive-upquote
+      - texlive-adjustbox
+      - texlive-titling
+      - texlive-ulem
       - rcs
 

@@ -3,7 +3,11 @@
 - lineinfile:
     path: ~/.tar-exclude
     create: True
-    line: ./.bashrc
+    line: "{{ item }}"
+  loop:
+    - ./.bash_logout
+    - ./.bash_profile
+    - ./.bashrc
 
 - blockinfile:
     dest: ~/.bashrc

@@ -34,10 +34,6 @@
     dest: ~/.bashrc.d/
     src: _bashrc.d/cli.sh
 
-- copy:
-    dest: ~/.bashrc.d/
-    src: _bashrc.d/ruby.sh
-
 - import_tasks: git.yml
 
 - import_tasks: vim.yml
@@ -70,3 +66,8 @@
 - get_url:
     url: https://nav.dl.sourceforge.net/project/plantuml/plantuml.jar
     dest: ~/.local/share/java/plantuml.jar
+
+- copy:
+    dest: ~/.bashrc.d/
+    src: _bashrc.d/pandoc.sh
+

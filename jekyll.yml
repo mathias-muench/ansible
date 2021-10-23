@@ -11,3 +11,9 @@
         name:
           - ruby-devel
           - rubygem-bundler
+
+- copy:
+    dest: ~/.bashrc.d/ruby.sh
+    content: |
+      export GEM_HOME=$HOME/.gem/ruby
+

@@ -58,7 +58,6 @@
     name:
       - pandoc-dist
       - java
-      - graphviz
       - okular
       - texlive
       - texlive-tcolorbox
@@ -68,3 +67,6 @@
       - texlive-ulem
       - rcs
 
+- get_url:
+    url: https://nav.dl.sourceforge.net/project/plantuml/plantuml.jar
+    dest: ~/.local/share/java/plantuml.jar

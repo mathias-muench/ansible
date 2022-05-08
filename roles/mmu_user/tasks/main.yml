@@ -67,6 +67,7 @@
       - podman
       - buildah
       - jq
+      - graphviz
 
 - file:
     state: directory

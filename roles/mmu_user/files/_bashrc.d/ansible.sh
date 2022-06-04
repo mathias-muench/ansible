@@ -1,0 +1,1 @@
+export DISPLAY_ARGS_TO_STDOUT=True

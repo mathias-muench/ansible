@@ -81,3 +81,7 @@
     dest: ~/.bashrc.d/
     src: _bashrc.d/pandoc.sh
 
+- copy:
+    dest: ~/.bashrc.d/
+    src: _bashrc.d/ansible.sh
+

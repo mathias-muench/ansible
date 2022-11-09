@@ -63,7 +63,7 @@
 
 - git_config:
     name: credential.helper
-    value: cache --timeout 3600
+    value: store
     scope: global
 
 - git_config:

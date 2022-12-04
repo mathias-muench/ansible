@@ -56,6 +56,11 @@
     scope: global
 
 - git_config:
+    name: alias.lg
+    value: log --oneline
+    scope: global
+
+- git_config:
     name: diff.tool
     value: vimdiff
     scope: global

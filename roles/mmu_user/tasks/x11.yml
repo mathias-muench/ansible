@@ -24,6 +24,11 @@
     create: True
     line: ./.config/i3/config
 
+- patch:
+    basedir: ~/.config/i3/
+    src: _config/i3/config.patch
+    backup: true
+
 - blockinfile:
     dest: ~/.config/i3/config
     content: |

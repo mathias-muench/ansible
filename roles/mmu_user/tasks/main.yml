@@ -9,22 +9,6 @@
     - ./.bash_profile
     - ./.bashrc
 
-- blockinfile:
-    dest: ~/.bashrc
-    block: |
-      for i in $HOME/.bashrc.d/*.sh
-      do
-          if test -r "$i"
-          then
-              if test -n "$PS1"
-              then
-                  . "$i"
-              else
-                  . "$i" >/dev/null
-              fi
-          fi
-      done
-
 - lineinfile:
     path: ~/.tar-exclude
     create: True

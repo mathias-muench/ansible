@@ -4,6 +4,7 @@
   dnf:
     name:
       - git
+      - git-subtree
       - tig
 
 - copy:

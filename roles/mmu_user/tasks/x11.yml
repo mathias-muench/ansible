@@ -9,6 +9,8 @@
       - mozilla-fira-mono-fonts
       - vim-X11
       - firefox
+      - rxvt-unicode
+      - xset
 
 - lineinfile:
     path: ~/.tar-exclude

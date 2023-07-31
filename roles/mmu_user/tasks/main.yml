@@ -39,12 +39,7 @@
       - pandoc-dist
       - java
       - okular
-      - texlive
-      - texlive-tcolorbox
-      - texlive-upquote
-      - texlive-adjustbox
-      - texlive-titling
-      - texlive-ulem
+      - weasyprint
       - rcs
       - openssl
       - sshuttle

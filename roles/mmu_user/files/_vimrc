@@ -1,3 +1,4 @@
+" BEGIN _vimrc
 call plug#begin('~/.vim/plugged')
 
 Plug 'davidhalter/jedi-vim'
@@ -33,6 +34,7 @@ let g:syntastic_check_on_wq = 1
 
 " Plugin 'tpope/vim-sensible'
 set hidden
+set noincsearch
 
 if has("gui_running")
   set guioptions-=m " Turn off menubar
@@ -59,4 +61,6 @@ augroup vimrc
     autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 expandtab autoindent
     autocmd BufRead,BufNewFile Jenkinsfile* set filetype=groovy
     autocmd FileType groovy setlocal shiftwidth=4 tabstop=4 expandtab autoindent
+    autocmd FileType structurizr setlocal cinoptions=+0
 augroup END
+" END _vimrc

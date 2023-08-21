@@ -29,7 +29,6 @@
   command:
     cmd: dnf copr enable -y mmu/mmu-dist-rpms
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:mmu:mmu-dist-rpms.repo
-    warn: False
 
 - tags: extdep
   become: True

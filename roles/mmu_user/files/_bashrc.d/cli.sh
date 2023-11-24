@@ -1,6 +1,7 @@
 case "$-" in
 	*i*)
 		set -o vi
+		alias v="gvim --remote"
 
 		trap 'history -w ~/.local/share/bash_history' EXIT
 		PROMPT_COMMAND="history -a; $PROMPT_COMMAND"

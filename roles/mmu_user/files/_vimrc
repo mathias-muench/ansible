@@ -1,10 +1,30 @@
-" BEGIN _vimrc
-call plug#begin('~/.vim/plugged')
+" Built-In Functionality
+"" General
+let mapleader = '-'
+let maplocalleader = '-'
+nnoremap <C-Enter> <C-]>
 
-Plug 'davidhalter/jedi-vim'
+set hidden " Allow background buffers without saving
+set splitright " Split to right by defaultcall plug#begin('~/.vim/plugged')
+
+" Plugins
+
+"" Installation with VimPlug
+if has("win32")
+" Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`New-Item $HOME/vimfiles/autoload/plug.vim -Force
+" (Get-Item -Force $HOME\vimfiles).Attributes += 'Hidden'
+" (Get-Item -Force $HOME\_vimrc).Attributes += 'Hidden'
+call plug#begin()
+else
+call plug#begin('~/.vim/plugged')
+endif
+
 Plug 'ambv/black'
+Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
 Plug 'pearofducks/ansible-vim'
 Plug 'michaeljsmith/vim-indent-object'
+" Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-easy-align'
 "Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
@@ -13,15 +33,37 @@ Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-sensible'
-"Plug 'thaerkh/vim-workspace'
 Plug 'aklt/plantuml-syntax'
 
 call plug#end()
 
-" Plugin 'thaerkh/vim-workspace'
-let g:workspace_autocreate = 1
+" Plugin 'tpope/vim-sensible'
+set visualbell
+set undofile " Persistent Undo
+if has("win32")
+set directory=$TEMP
+set backupdir=$TEMP
+set undodir=$TEMP
+else
+set directory=$XDG_RUNTIME_DIR
+set backupdir=$XDG_RUNTIME_DIR
+set undodir=$XDG_RUNTIME_DIR
+endif
+set noincsearch
+
+if has("win32")
+" Plug 'psf/black' ", { 'branch': 'stable' }
+let g:black_virtualenv = "~/vimfiles/black"
+endif
+
+" Plug 'dense-analysis/ale'
+let g:ale_python_flake8_options = '--max-line-length=88'
+let g:ale_python_mypy_options = '--implicit-optional'
+
+" Plug 'chrisbra/csv.vim'
+let g:csv_comment = '#'
 
 " Plugin 'pearofducks/ansible-vim'
 let g:ansible_unindent_after_newline = 1
@@ -32,11 +74,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 
-" Plugin 'tpope/vim-sensible'
-set hidden
-set noincsearch
-
 if has("gui_running")
+if has("win32")
+  set lines=32767 columns=32767
+endif
   set guioptions-=m " Turn off menubar
   set guioptions-=T " Turn off toolbar
   set guioptions-=r " Turn off right-hand scrollbar
@@ -44,8 +85,11 @@ if has("gui_running")
   set guioptions-=L " Turn off left-hand scrollbar
   set guioptions-=l " Turn off left-hand=scrollbar when split
   set guicursor+=a:blinkon0 " Turn off blinking cursor
+if has("win32")
+  set guifont=Consolas:h11
+else
   set guifont=Fira\ Mono\ 12
-  set visualbell
+endif
 endif
 
 if &diff
@@ -58,9 +102,8 @@ augroup vimrc
     autocmd FileType html,html.* setlocal shiftwidth=2 tabstop=2 noexpandtab autoindent
     autocmd FileType json,json.*,yaml,yaml.* setlocal shiftwidth=2 tabstop=2 expandtab autoindent
     autocmd FileType python,jinja setlocal shiftwidth=4 tabstop=4 expandtab autoindent
-    autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 expandtab autoindent
+    autocmd FileType markdown setlocal shiftwidth=4 tabstop=4 expandtab autoindent
     autocmd BufRead,BufNewFile Jenkinsfile* set filetype=groovy
     autocmd FileType groovy setlocal shiftwidth=4 tabstop=4 expandtab autoindent
     autocmd FileType structurizr setlocal cinoptions=+0
 augroup END
-" END _vimrc

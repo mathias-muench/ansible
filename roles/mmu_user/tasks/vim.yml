@@ -19,10 +19,10 @@
     create: True
     line: ./.vimrc
 
-- blockinfile:
-    path: ~/.vimrc
+- copy:
+    dest: ~/.vimrc
     create: True
-    block: "{{ lookup('file', '_vimrc') }}"
+    src: _vimrc
     marker: '" {mark} _vimrc'
 
 - lineinfile:

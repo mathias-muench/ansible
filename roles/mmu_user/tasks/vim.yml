@@ -21,9 +21,7 @@
 
 - copy:
     dest: ~/.vimrc
-    create: True
     src: _vimrc
-    marker: '" {mark} _vimrc'
 
 - lineinfile:
     path: ~/.tar-exclude

@@ -6,6 +6,8 @@
       - git
       - git-subtree
       - tig
+      - gh
+      - glab
 
 - copy:
     dest: ~/.bashrc.d/

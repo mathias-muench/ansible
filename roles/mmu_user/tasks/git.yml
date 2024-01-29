@@ -84,16 +84,12 @@
     scope: local
     repo: "{{ playbook_dir }}"
 
-- git_config:
-    name: core.excludesfile
-    value: ~/.gitignore
-    scope: global
-
 - copy:
-    dest: ~/.gitignore
+    dest: ~/.config/git/ignore
     content: |
-      .undodir
-      Session.vim
       .*.swp
       nohup.out
+      *.vim
+      .undodir
+      .obsidian/
 

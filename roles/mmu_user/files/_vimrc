@@ -59,8 +59,15 @@ let g:black_virtualenv = "~/vimfiles/black"
 endif
 
 " Plug 'dense-analysis/ale'
+let g:ale_set_quickfix = 1
 let g:ale_python_flake8_options = '--max-line-length=88'
 let g:ale_python_mypy_options = '--implicit-optional'
+let g:ale_fixers = {
+\   'terraform': [
+\       'terraform',
+\   ],
+\}
+
 
 " Plug 'chrisbra/csv.vim'
 let g:csv_comment = '#'

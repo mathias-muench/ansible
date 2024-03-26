@@ -63,6 +63,9 @@ let g:ale_set_quickfix = 1
 let g:ale_python_flake8_options = '--max-line-length=88'
 let g:ale_python_mypy_options = '--implicit-optional'
 let g:ale_fixers = {
+\   'yaml': [
+\       'yamlfmt',
+\   ],
 \   'terraform': [
 \       'terraform',
 \   ],

@@ -59,8 +59,18 @@
     scope: global
 
 - git_config:
+    name: alias.dn
+    value: diff --name-only
+    scope: global
+
+- git_config:
     name: alias.lg
     value: log --oneline
+    scope: global
+
+- git_config:
+    name: alias.aa
+    value: add -Av
     scope: global
 
 - git_config:

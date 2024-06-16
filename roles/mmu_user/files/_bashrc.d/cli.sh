@@ -14,3 +14,4 @@ esac
 export TZ=Europe/Berlin
 export TERM=rxvt-256color
 export TERMINAL=urxvt
+export VISUAL="gvim -f"

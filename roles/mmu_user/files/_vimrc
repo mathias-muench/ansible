@@ -20,24 +20,30 @@ call plug#begin('~/.vim/plugged')
 endif
 
 Plug 'ambv/black'
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
+Plug 'SirVer/ultisnips' | Plug 'jayli/vim-easycomplete'
 Plug 'dense-analysis/ale'
 Plug 'pearofducks/ansible-vim'
 Plug 'michaeljsmith/vim-indent-object'
-" Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-easy-align'
 "Plug 'godlygeek/tabular'
-Plug 'dhruvasagar/vim-table-mode'
-"Plug 'chrisbra/csv.vim'
+"Plug 'dhruvasagar/vim-table-mode'
+Plug 'chrisbra/csv.vim'
 Plug 'chr4/nginx.vim'
 Plug 'chr4/sslsecure.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-" Plug 'vim-syntastic/syntastic'
+"Plug 'tpope/vim-surround'
+"Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-sensible'
 Plug 'aklt/plantuml-syntax'
+Plug 'mattn/webapi-vim' | Plug 'mattn/vim-gist'
 
 call plug#end()
+
+" Plug 'mattn/webapi-vim' | Plug 'mattn/vim-gist'
+let g:gist_api_url = 'https://github.boschdevcloud.com/api/v3'
+let g:gist_post_private = 1
 
 " Plugin 'tpope/vim-sensible'
 set visualbell
@@ -74,6 +80,7 @@ let g:ale_fixers = {
 
 " Plug 'chrisbra/csv.vim'
 let g:csv_comment = '#'
+let g:csv_delim_test = "\t"
 
 " Plugin 'pearofducks/ansible-vim'
 let g:ansible_unindent_after_newline = 1
@@ -102,10 +109,6 @@ else
 endif
 endif
 
-if &diff
-  syntax off
-endif
-  
 augroup vimrc
     autocmd!
     autocmd BufRead,BufNewFile *.json.j2 set filetype=json.jinja2
@@ -115,5 +118,11 @@ augroup vimrc
     autocmd FileType markdown setlocal shiftwidth=4 tabstop=4 expandtab autoindent
     autocmd BufRead,BufNewFile Jenkinsfile* set filetype=groovy
     autocmd FileType groovy setlocal shiftwidth=4 tabstop=4 expandtab autoindent
-    autocmd FileType structurizr setlocal cinoptions=+0
+    autocmd FileType structurizr,groovy setlocal cinoptions=+0
+    autocmd BufRead,BufNewFile *.tsv,*.tab let b:delimiter="\t" | set filetype=csv
+    autocmd BufRead,BufNewFile *.csv,*.dat set filetype=csv
 augroup END
+
+if &diff
+  syntax off
+endif

@@ -74,6 +74,11 @@
     scope: global
 
 - git_config:
+    name: alias.pf
+    value: push --force-with-lease
+    scope: global
+
+- git_config:
     name: diff.tool
     value: vimdiff
     scope: global

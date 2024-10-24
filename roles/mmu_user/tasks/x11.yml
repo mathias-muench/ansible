@@ -34,6 +34,7 @@
 - blockinfile:
     dest: ~/.config/i3/config
     content: |
+      bindsym $mod+x move workspace to output next
       exec --no-startup-id parcellite
 
 - lineinfile:

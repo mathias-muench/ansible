@@ -35,6 +35,8 @@
     dest: ~/.config/i3/config
     content: |
       bindsym $mod+x move workspace to output next
+      bindsym $mod+Shift+minus move scratchpad
+      bindsym $mod+minus scratchpad show
       exec --no-startup-id parcellite
 
 - lineinfile:

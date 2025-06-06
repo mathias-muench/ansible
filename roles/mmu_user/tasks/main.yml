@@ -20,7 +20,7 @@
 
 - import_tasks: git.yml
 
-- import_tasks: vim.yml
+- import_tasks: nvim.yml
 
 - import_tasks: x11.yml
 

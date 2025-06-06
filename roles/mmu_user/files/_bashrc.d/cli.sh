@@ -1,7 +1,6 @@
 case "$-" in
 	*i*)
 		set -o vi
-		alias v="gvim --remote-silent"
 		alias pd=pushd
 		alias dv="dirs -v"
 
@@ -16,4 +15,5 @@ esac
 export TZ=Europe/Berlin
 export TERM=rxvt-256color
 export TERMINAL=urxvt
-export VISUAL="gvim -f"
+export EDITOR="/usr/bin/nvim"
+export VISUAL="/usr/bin/nvim"

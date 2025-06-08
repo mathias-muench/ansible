@@ -2,7 +2,7 @@
 "" General
 let mapleader = '-'
 let maplocalleader = '-'
-nnoremap <C-Enter> <C-]>
+nnoremap <^> <C-]>
 
 set hidden " Allow background buffers without saving
 set splitright " Split to right by defaultcall plug#begin('~/.vim/plugged')
@@ -21,7 +21,7 @@ endif
 
 Plug 'ambv/black'
 "Plug 'davidhalter/jedi-vim'
-Plug 'SirVer/ultisnips' | Plug 'jayli/vim-easycomplete'
+"Plug 'SirVer/ultisnips' | Plug 'jayli/vim-easycomplete'
 Plug 'dense-analysis/ale'
 Plug 'pearofducks/ansible-vim'
 Plug 'michaeljsmith/vim-indent-object'
@@ -65,18 +65,20 @@ let g:black_virtualenv = "~/vimfiles/black"
 endif
 
 " Plug 'dense-analysis/ale'
-let g:ale_set_quickfix = 1
-let g:ale_python_flake8_options = '--max-line-length=88'
-let g:ale_python_mypy_options = '--implicit-optional'
-let g:ale_fixers = {
-\   'yaml': [
-\       'yamlfmt',
-\   ],
-\   'terraform': [
-\       'terraform',
-\   ],
+let g:ale_completion_enabled = v:true
+"let g:ale_set_quickfix = 1
+"let g:ale_python_flake8_options = '--max-line-length=88'
+"let g:ale_python_mypy_options = '--implicit-optional'
+"let g:ale_fixers = {
+\   'yaml': ['yamlfmt'],
 \}
-
+let g:ale_linters = {
+\   'python': ['pyright'],
+\}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <leader>d <Plug>(ale_go_to_definition)
+nmap <silent> <leader>r <Plug>(ale_find_references)
 
 " Plug 'chrisbra/csv.vim'
 let g:csv_comment = '#'

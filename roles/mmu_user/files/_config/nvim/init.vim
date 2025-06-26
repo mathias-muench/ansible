@@ -18,6 +18,7 @@ tnoremap <F32> <C-}>
 tnoremap <F33> <C-\>
 tnoremap <F34> <C-|>
 tnoremap <M-Right> <C-\><C-O>:tabnext<C-M>
+tnoremap ° <C-\><C-O>
 
 " Plugins
 

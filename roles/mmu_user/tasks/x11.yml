@@ -23,7 +23,7 @@
 - lineinfile:
     path: ~/.tar-exclude
     create: True
-    line: ./.config/i3/
+    line: ./.config/i3
 
 - patch:
     basedir: ~/.config/i3/
@@ -42,6 +42,11 @@
     path: ~/.tar-exclude
     create: True
     line: ./.Xdefaults
+    line: ./.xsession
+
+- copy:
+    dest: ~/.xsession
+    src: _xsession
 
 - copy:
     dest: ~/.Xdefaults

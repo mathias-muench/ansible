@@ -84,8 +84,13 @@
     scope: global
 
 - git_config:
-    name: credential.helper
+    name: credential.https://github.com.helper
     value: store
+    scope: global
+
+- git_config:
+    name: credential.https://github.com.useHttpPath
+    value: "true"
     scope: global
 
 - git_config:

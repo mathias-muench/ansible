@@ -5,9 +5,12 @@
     create: True
     line: "{{ item }}"
   loop:
+    - ./.tar-exclude
+    - ./.cache
     - ./.bash_logout
     - ./.bash_profile
     - ./.bashrc
+    - ./thinclient_drives
 
 - lineinfile:
     path: ~/.tar-exclude

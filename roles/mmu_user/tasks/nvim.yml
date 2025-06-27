@@ -27,4 +27,4 @@
 - lineinfile:
     path: ~/.tar-exclude
     create: True
-    line: ./.config/nvim/
+    line: ./.config/nvim

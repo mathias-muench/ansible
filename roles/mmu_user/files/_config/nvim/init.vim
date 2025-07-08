@@ -49,10 +49,14 @@ Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-surround'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'tpope/vim-sensible'
+Plug 'zhimsel/vim-stay'
 Plug 'aklt/plantuml-syntax'
 Plug 'mattn/webapi-vim' | Plug 'mattn/vim-gist'
 
 call plug#end()
+
+" Plug 'zhimsel/vim-stay'
+set viewoptions=cursor,folds,slash,unix
 
 " Plug 'mattn/webapi-vim' | Plug 'mattn/vim-gist'
 let g:gist_api_url = 'https://github.boschdevcloud.com/api/v3'

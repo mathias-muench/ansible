@@ -9,6 +9,12 @@ nnoremap <F31> <C-]>
 nnoremap <F32> <C-}>
 nnoremap <F33> <C-\>
 nnoremap <F34> <C-|>
+nnoremap <C-F7> <C-{>
+nnoremap <C-F8> <C-[>
+nnoremap <C-F9> <C-]>
+nnoremap <C-F10> <C-}>
+nnoremap <C-F11> <C-\>
+nnoremap <C-F12> <C-|>
 noremap <M-Right> :tabnext<C-M>
 
 tnoremap <F29> <C-{>
@@ -17,6 +23,12 @@ tnoremap <F31> <C-]>
 tnoremap <F32> <C-}>
 tnoremap <F33> <C-\>
 tnoremap <F34> <C-|>
+tnoremap <C-F7> <C-{>
+tnoremap <C-F8> <C-[>
+tnoremap <C-F9> <C-]>
+tnoremap <C-F10> <C-}>
+tnoremap <C-F11> <C-\>
+tnoremap <C-F12> <C-|>
 tnoremap <M-Right> <C-\><C-O>:tabnext<C-M>
 tnoremap ° <C-\><C-O>
 

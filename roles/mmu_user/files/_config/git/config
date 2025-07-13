@@ -1,0 +1,17 @@
+[alias]
+	st = status -sb
+	cl = clean -f -d
+	ad = add -uv
+	ci = commit
+	rb = rebase -i
+	fe = fetch --prune --tags
+	mg = merge --ff-only
+	df = diff --relative
+	lg = log --oneline
+	dn = diff --name-only
+	aa = add -Av
+	pf = push --force-with-lease
+[user]
+	name = Mathias Muench
+[credential "https://github.com"]
+	helper = store

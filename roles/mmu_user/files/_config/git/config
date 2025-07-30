@@ -11,7 +11,5 @@
 	dn = diff --name-only
 	aa = add -Av
 	pf = push --force-with-lease
-[user]
-	name = Mathias Muench
 [credential "https://github.com"]
 	helper = store

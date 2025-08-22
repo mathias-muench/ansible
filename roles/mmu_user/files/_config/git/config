@@ -4,7 +4,7 @@
 	ad = add -uv
 	ci = commit
 	rb = rebase -i
-	fe = fetch --prune --tags
+	fe = fetch --prune --all
 	mg = merge --ff-only
 	df = diff --relative
 	lg = log --oneline

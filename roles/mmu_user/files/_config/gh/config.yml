@@ -1,3 +1,4 @@
 version: "1"
 aliases:
     rr: pr list --search "review-requested:@me"
+    au: pr list --search "author:@me"

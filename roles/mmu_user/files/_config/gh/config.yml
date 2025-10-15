@@ -1,0 +1,3 @@
+version: "1"
+aliases:
+    rr: pr list --search "review-requested:@me"

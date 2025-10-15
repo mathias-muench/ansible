@@ -16,3 +16,7 @@
 - copy:
     dest: ~/.config/
     src: _config/git
+
+- copy:
+    dest: ~/.config/gh/config.yml
+    src: _config/gh/config.yml

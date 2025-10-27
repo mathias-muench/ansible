@@ -1,6 +1,7 @@
 case "$-" in
 	*i*)
 		set -o vi
+		shopt -s globstar
 		alias pd=pushd
 		alias dv="dirs -v"
 

@@ -15,5 +15,6 @@ esac
 export TZ=Europe/Berlin
 export TERM=rxvt-256color
 export TERMINAL=urxvt
+export PAGER="/usr/bin/less"
 export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"

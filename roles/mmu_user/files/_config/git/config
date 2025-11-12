@@ -11,5 +11,6 @@
 	dn = diff --name-only
 	aa = add -Av
 	pf = push --force-with-lease
+	ls = ls-files
 [credential "https://github.com"]
 	helper = store

@@ -49,6 +49,7 @@
       - buildah
       - jq
       - graphviz
+      - parallel
 
 - file:
     state: directory

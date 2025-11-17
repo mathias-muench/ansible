@@ -48,6 +48,7 @@
       - podman
       - buildah
       - jq
+      - yq
       - graphviz
       - parallel
 

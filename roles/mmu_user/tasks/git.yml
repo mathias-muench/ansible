@@ -1,22 +1,9 @@
----
-- tags: extdep
-  become: True
-  dnf:
-    name:
-      - git
-      - git-subtree
-      - tig
-      - gh
-      - glab
-
 - copy:
     dest: ~/.bashrc.d/
-    src: _bashrc.d/git.sh
-
+    src: _bashrc.d/
 - copy:
     dest: ~/.config/
-    src: _config/git
-
+    src: _config/git/
 - copy:
-    dest: ~/.config/gh/config.yml
-    src: _config/gh/config.yml
+    dest: ~/.config/gh/
+    src: _config/gh/

@@ -1,16 +1,5 @@
 ---
 
-- tags: extdep
-  become: True
-  dnf:
-    name:
-      - parcellite
-      - xsel
-      - mozilla-fira-mono-fonts
-      - firefox
-      - rxvt-unicode
-      - xset
-
 - lineinfile:
     path: ~/.tar-exclude
     create: True

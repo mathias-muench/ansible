@@ -1,0 +1,28 @@
+---
+- command:
+    cmd: dnf copr enable -y mmu/mmu-dist-rpms
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:mmu:mmu-dist-rpms.repo
+
+- dnf:
+    enablerepo: mmu/mmu-dist-rpms
+    name:
+      - pandoc-dist
+      - java
+      - okular
+      - weasyprint
+      - rcs
+      - openssl
+      - sshuttle
+      - podman
+      - buildah
+      - jq
+      - yq
+      - graphviz
+      - parallel
+
+- import_tasks: git.yml
+
+- import_tasks: nvim.yml
+
+- import_tasks: x11.yml
+

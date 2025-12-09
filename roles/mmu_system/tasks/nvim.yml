@@ -1,0 +1,9 @@
+---
+- dnf:
+    name:
+      - neovim
+
+- dnf:
+    name:
+      - nano-default-editor
+    state: absent

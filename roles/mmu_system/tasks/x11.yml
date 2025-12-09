@@ -1,0 +1,8 @@
+- dnf:
+    name:
+      - parcellite
+      - xsel
+      - mozilla-fira-mono-fonts
+      - firefox
+      - rxvt-unicode
+      - xset

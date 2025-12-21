@@ -116,7 +116,7 @@ endif
 if has("win32")
   set guifont=Consolas:h11
 else
-  set guifont=Fira\ Mono\ 12
+  set guifont=Fira\ Code\ 12
 endif
 endif
 

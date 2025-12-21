@@ -2,7 +2,7 @@
     name:
       - parcellite
       - xsel
-      - mozilla-fira-mono-fonts
+      - fira-code-fonts
       - firefox
       - rxvt-unicode
       - xset

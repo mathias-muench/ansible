@@ -1,2 +1,2 @@
-URxvt*font: xft:Fira Mono
+URxvt*font: xft:Fira Code
 URxvt.url-select.launcher: /usr/bin/firefox

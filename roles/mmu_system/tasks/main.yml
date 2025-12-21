@@ -19,10 +19,10 @@
       - yq
       - graphviz
       - parallel
+      - python3-pip
 
 - import_tasks: git.yml
 
 - import_tasks: nvim.yml
 
 - import_tasks: x11.yml
-

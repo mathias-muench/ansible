@@ -1,0 +1,28 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: local
+    hooks:
+    -   id: prepare-commit-msg
+        name: Prepare commit message
+        entry: /home/mun5grb/.githooks/prepare-commit-msg
+        language: script
+        stages: [prepare-commit-msg]
+    -   id: yamlfmt-local
+        name: yamlfmt local
+        entry: yamlfmt
+        language: system
+        types: [yaml]
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+        types_or: [yaml]
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+        args: [--allow-multiple-documents]
+    -   id: check-added-large-files
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks

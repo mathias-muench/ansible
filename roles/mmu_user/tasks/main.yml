@@ -5,6 +5,7 @@
   loop:
     - ./.tar-exclude
     - ./.cache
+    - ./.local
     - ./.bash_logout
     - ./.bash_profile
     - ./.bashrc

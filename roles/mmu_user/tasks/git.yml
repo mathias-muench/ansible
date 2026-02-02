@@ -7,3 +7,6 @@
 - copy:
     dest: ~/.config/gh/
     src: _config/gh/
+- copy:
+    dest: ~/.config/pre-commit/
+    src: _config/pre-commit/

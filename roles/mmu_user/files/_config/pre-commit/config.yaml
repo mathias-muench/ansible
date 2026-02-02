@@ -8,11 +8,6 @@ repos:
         entry: /home/mun5grb/.githooks/prepare-commit-msg
         language: script
         stages: [prepare-commit-msg]
-    -   id: yamlfmt-local
-        name: yamlfmt local
-        entry: yamlfmt
-        language: system
-        types: [yaml]
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.2.0
     hooks:

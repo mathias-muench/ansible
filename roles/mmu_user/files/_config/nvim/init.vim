@@ -30,7 +30,7 @@ tnoremap <C-F10> <C-}>
 tnoremap <C-F11> <C-\>
 tnoremap <C-F12> <C-|>
 tnoremap <M-Right> <C-\><C-O>:tabnext<C-M>
-tnoremap ° <C-\><C-O>
+tnoremap ° <C-\><C-N>
 
 " Plugins
 
@@ -48,21 +48,22 @@ endif
 "Plug 'davidhalter/jedi-vim'
 "Plug 'SirVer/ultisnips' | Plug 'jayli/vim-easycomplete'
 Plug 'dense-analysis/ale'
-Plug 'pearofducks/ansible-vim'
+"Plug 'pearofducks/ansible-vim'
 Plug 'michaeljsmith/vim-indent-object'
 "Plug 'vim-airline/vim-airline'
-Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/vim-easy-align'
 "Plug 'godlygeek/tabular'
 "Plug 'dhruvasagar/vim-table-mode'
 Plug 'chrisbra/csv.vim'
-Plug 'chr4/nginx.vim'
-Plug 'chr4/sslsecure.vim'
+"Plug 'chr4/nginx.vim'
+"Plug 'chr4/sslsecure.vim'
 Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-surround'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'tpope/vim-sensible'
-Plug 'aklt/plantuml-syntax'
-Plug 'mattn/webapi-vim' | Plug 'mattn/vim-gist'
+"Plug 'aklt/plantuml-syntax'
+"Plug 'mattn/webapi-vim' | Plug 'mattn/vim-gist'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
@@ -76,18 +77,20 @@ let g:black_virtualenv = "~/vimfiles/black"
 endif
 
 " Plug 'dense-analysis/ale'
-let g:ale_set_quickfix = 1
-let g:ale_python_flake8_options = '--max-line-length=88'
-let g:ale_python_mypy_options = '--implicit-optional'
+let g:loaded_python3_provider = 0  " Disable Python 3 provider
 let g:ale_fixers = {
 \   'yaml': [
 \       'yamlfmt',
 \   ],
-\   'terraform': [
-\       'terraform',
+\}
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   'python': [
+\       'pyright',
+\       'ruff',
 \   ],
 \}
-
+let g:ale_set_quickfix = 1
 
 " Plug 'chrisbra/csv.vim'
 let g:csv_comment = '#'

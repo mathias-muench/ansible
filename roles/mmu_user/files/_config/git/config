@@ -8,6 +8,7 @@
 	mg = merge --ff-only
 	df = diff --relative
 	lg = log --oneline
+	ln = log --oneline --name-only
 	dn = diff --name-only
 	aa = add -Av
 	pf = push --force-with-lease

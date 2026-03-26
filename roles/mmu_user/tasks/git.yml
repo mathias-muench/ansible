@@ -2,7 +2,7 @@
     dest: ~/.bashrc.d/
     src: _bashrc.d/
 - copy:
-    dest: ~/.config/
+    dest: ~/.config/git/
     src: _config/git/
 - copy:
     dest: ~/.config/gh/

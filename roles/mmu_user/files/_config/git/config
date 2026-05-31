@@ -13,5 +13,9 @@
 	aa = add -Av
 	pf = push --force-with-lease
 	ls = ls-files
-[credential "https://github.com"]
-	helper = store
+[includeIf "urlmatch:https://github.com/**"]
+    [user]
+        name = Mathias Muench
+        email = mathias-muench@users.noreply.github.com
+    [credential "https://github.com"]
+        helper = !gh auth git-credential

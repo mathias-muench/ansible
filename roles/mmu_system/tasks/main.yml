@@ -6,7 +6,7 @@
 - dnf:
     enablerepo: mmu/mmu-dist-rpms
     name:
-      - pandoc-dist
+      - pandoc-cli
       - java
       - okular
       - weasyprint

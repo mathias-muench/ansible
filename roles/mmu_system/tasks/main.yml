@@ -20,6 +20,7 @@
       - graphviz
       - parallel
       - python3-pip
+      - pipx
 
 - import_tasks: git.yml
 

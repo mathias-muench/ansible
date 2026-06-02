@@ -6,3 +6,4 @@
       - tig
       - gh
       - glab
+      - pre-commit

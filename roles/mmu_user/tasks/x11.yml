@@ -30,9 +30,17 @@
 - lineinfile:
     path: ~/.tar-exclude
     create: True
-    line: ./.Xdefaults
+    line: ./.Xresources
 
 - copy:
-    dest: ~/.Xdefaults
-    src: _Xdefaults
+    dest: ~/.Xresources
+    src: _Xresources
 
+- lineinfile:
+    path: ~/.tar-exclude
+    create: True
+    line: ./.xsession
+
+- copy:
+    dest: ~/.xsession
+    src: _xsession

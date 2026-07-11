@@ -19,6 +19,7 @@
     src: _bashrc.d/cli.sh
 - import_tasks: git.yml
 - import_tasks: nvim.yml
+- import_tasks: pandoc.yml
 - import_tasks: x11.yml
   tags: X11
 - file:

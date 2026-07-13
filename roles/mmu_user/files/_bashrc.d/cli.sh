@@ -14,8 +14,9 @@ case "$-" in
 esac
 
 export TZ=Europe/Berlin
-export TERM=xterm
-export TERMINAL=/usr/bin/xterm
+export TERM=rxvt-256color
+export TERMINAL=urxvt
+export COLORTERM=truecolor
 export PAGER=/usr/bin/less
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR

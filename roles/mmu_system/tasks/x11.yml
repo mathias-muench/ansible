@@ -1,7 +1,0 @@
-- dnf:
-    name:
-      - parcellite
-      - xsel
-      - fira-code-fonts
-      - firefox
-      - xset

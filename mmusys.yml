@@ -1,9 +1,51 @@
 #! /usr/bin/ansible-playbook
 ---
-
 - hosts: localhost
   connection: local
   vars:
     ansible_python_interpreter: "{{ ansible_playbook_python }}"
-  roles:
-    - role: mmu_system
+  tasks:
+    - name: Enable mmu dist-rpms copr repo
+      command:
+        cmd: dnf copr enable -y mmu/mmu-dist-rpms
+        creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:mmu:mmu-dist-rpms.repo
+    - name: Install packages
+      dnf:
+        enablerepo: mmu/mmu-dist-rpms
+        name:
+          - buildah
+          - gh
+          - git
+          - git-subtree
+          - glab
+          - graphviz
+          - java
+          - jq
+          - neovim
+          - okular
+          - openssl
+          - pandoc-cli
+          - parallel
+          - podman
+          - pre-commit
+          - python3-pip
+          - rcs
+          - sshuttle
+          - tig
+          - uv
+          - weasyprint
+          - yq
+    - name: Remove nano-default-editor
+      dnf:
+        name:
+          - nano-default-editor
+        state: absent
+    - name: Install X11 packages
+      dnf:
+        name:
+          - fira-code-fonts
+          - firefox
+          - parcellite
+          - xsel
+          - xset
+      tags: X11

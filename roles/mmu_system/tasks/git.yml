@@ -1,9 +1,0 @@
----
-- dnf:
-    name:
-      - git
-      - git-subtree
-      - tig
-      - gh
-      - glab
-      - pre-commit

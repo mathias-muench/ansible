@@ -1,6 +1,0 @@
-- file:
-    state: directory
-    path: ~/.local/share/pandoc/
-- copy:
-    dest: ~/.local/share/pandoc/
-    src: _config/pandoc/

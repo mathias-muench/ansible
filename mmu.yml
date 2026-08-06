@@ -1,9 +1,134 @@
 #! /usr/bin/ansible-playbook
 ---
-
 - hosts: localhost
   connection: local
   vars:
     ansible_python_interpreter: "{{ ansible_playbook_python }}"
-  roles:
-    - role: mmu_user
+  tasks:
+    - name: Add base paths to ~/.tar-exclude
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: "{{ item }}"
+      loop:
+        - ./.tar-exclude
+        - ./.cache
+        - ./.local
+        - ./.bash_logout
+        - ./.bash_profile
+        - ./.bashrc
+        - ./thinclient_drives
+    - name: Exclude ./.bashrc.d
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: ./.bashrc.d
+    - name: Install shell rc scripts
+      copy:
+        dest: ~/.bashrc.d/
+        src: files/_bashrc.d/
+    - name: Install git config
+      copy:
+        dest: ~/.config/git/
+        src: files/_config/git/
+    - name: Install gh config
+      copy:
+        dest: ~/.config/gh/
+        src: files/_config/gh/
+    - name: Install pre-commit config
+      copy:
+        dest: ~/.config/pre-commit/
+        src: files/_config/pre-commit/
+    - name: Install nvim config
+      file:
+        state: directory
+        path: ~/.config/nvim/autoload
+    - name: Install vim-plug
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: ~/.config/nvim/autoload/plug.vim
+    - name: Install nvim init.vim
+      copy:
+        dest: ~/.config/nvim/init.vim
+        src: files/_config/nvim/init.vim
+    - name: Exclude ./.config/nvim
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: ./.config/nvim
+    - name: Install pandoc config
+      file:
+        state: directory
+        path: ~/.local/share/pandoc/
+    - name: Install pandoc defaults
+      copy:
+        dest: ~/.local/share/pandoc/
+        src: files/_config/pandoc/
+    - name: Exclude parcellite config
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: ./.config/parcellite/parcelliterc
+      tags: X11
+    - name: Install parcellite config
+      copy:
+        dest: ~/.config/parcellite/parcelliterc
+        src: files/parcelliterc
+      tags: X11
+    - name: Exclude i3 config
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: ./.config/i3
+      tags: X11
+    - name: Patch i3 config
+      patch:
+        basedir: ~/.config/i3/
+        src: files/_config/i3/config.patch
+        backup: true
+      tags: X11
+    - name: Add i3 keybindings
+      blockinfile:
+        dest: ~/.config/i3/config
+        content: |
+          bindsym $mod+x move workspace to output next
+          bindsym $mod+Shift+minus move scratchpad
+          bindsym $mod+minus scratchpad show
+          exec --no-startup-id parcellite
+      tags: X11
+    - name: Exclude .Xresources
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: ./.Xresources
+      tags: X11
+    - name: Install .Xresources
+      copy:
+        dest: ~/.Xresources
+        src: files/_Xresources
+      tags: X11
+    - name: Exclude .xsession
+      lineinfile:
+        path: ~/.tar-exclude
+        create: true
+        line: ./.xsession
+      tags: X11
+    - name: Install .xsession
+      copy:
+        dest: ~/.xsession
+        src: files/_xsession
+      tags: X11
+    - name: Install plantuml
+      file:
+        state: directory
+        path: ~/.local/share/java/
+    - name: Fetch plantuml release
+      community.general.github_release:
+        user: plantuml
+        repo: plantuml
+        action: latest_release
+      register: _plantuml_release
+    - name: Download plantuml.jar
+      get_url:
+        url: https://github.com/plantuml/plantuml/releases/download/{{ _plantuml_release.tag }}/plantuml.jar
+        dest: ~/.local/share/java/plantuml.jar

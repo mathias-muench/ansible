@@ -35,10 +35,6 @@
       copy:
         dest: ~/.config/gh/
         src: files/_config/gh/
-    - name: Install pre-commit config
-      copy:
-        dest: ~/.config/pre-commit/
-        src: files/_config/pre-commit/
     - name: Install nvim config
       file:
         state: directory

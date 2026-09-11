@@ -13,7 +13,9 @@
       loop:
         - ./.tar-exclude
         - ./.cache
-        - ./.local
+        - ./.local/bin/
+        - ./.local/lib/
+        - ./.local/state/
         - ./.bash_logout
         - ./.bash_profile
         - ./.bashrc

@@ -33,6 +33,7 @@ rsync -avc $1 "$FILES_DIR/_config/git/" ~/.config/git/
 rsync -avc $1 "$FILES_DIR/_config/gh/" ~/.config/gh/
 rsync -avc $1 --delete "$FILES_DIR/_config/opencode/skills/" ~/.config/opencode/skills/
 rsync -avc $1 "$FILES_DIR/_config/opencode/opencode.jsonc" ~/.config/opencode/opencode.jsonc
+rsync -avc $1 "$FILES_DIR/_config/opencode/AGENTS.md" ~/.config/opencode/AGENTS.md
 rsync -avc $1 "$FILES_DIR/_config/pandoc/" ~/.local/share/pandoc/
 
 mkdir -p ~/.config/nvim/autoload

@@ -1,11 +1,15 @@
---- config	2022-12-27 19:52:31.963388386 +0100
-+++ config	2022-12-27 19:52:43.973579122 +0100
-@@ -150,7 +150,7 @@
+--- .config/i3/config	2022-12-27 19:52:31.963388386 +0100
++++ .config/i3/config	2022-12-27 19:53:00.000000000 +0100
+@@ -150,7 +150,11 @@
  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
  bindsym $mod+Shift+r restart
  # exit i3 (logs you out of your X session)
 -bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 +bindsym $mod+Shift+e exit
  
++bindsym $mod+x move workspace to output next
++bindsym $mod+Shift+minus move scratchpad
++bindsym $mod+minus scratchpad show
++exec --no-startup-id parcellite
  # resize window (you can also use the mouse for that)
  mode "resize" {

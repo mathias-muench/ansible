@@ -1,2 +1,2 @@
-XTerm*faceName: xft:Fira Code
-XTerm*faceSize: 12
+URxvt*font: xft:Fira Code:size=12
+URxvt*boldFont: xft:Fira Code:bold:size=12

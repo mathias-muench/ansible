@@ -52,3 +52,5 @@
   fact, not a setting.
 - **No comments unless the code cannot say it.** Section comments structure the
   file; the rest is code.
+- **Auto-formatting is enabled.** Do not fight the formatters, accept the standard
+  format.

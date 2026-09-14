@@ -1,5 +1,17 @@
-npm warn exec The following package was not found and will be installed:
-prettier@3.9.6
+## The "bash" tool
+
+- Use tools over bash.
+- Keep diversity of bash tools small
+  - use `sed` instead of grep, head, tail, and-so-on. These are examples,
+    complete the list yourself.
+  - use `uv run` over `python3`
+  - global options a forbdden - use `cd ~/foo && git status` over
+    `git -C ~/foo status`. The same for all other git commands.
+
+## User Interaction
+
+- When providing commands for copy/paste, use clean one-line command lines, no
+  line contiuation with `\\`
 
 ## Code Style
 

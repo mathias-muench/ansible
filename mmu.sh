@@ -31,9 +31,7 @@ fi
 rsync -avc --mkpath $1 "$FILES_DIR/_bashrc.d/" ~/.bashrc.d/
 rsync -avc --mkpath $1 "$FILES_DIR/_config/git/" ~/.config/git/
 rsync -avc --mkpath $1 "$FILES_DIR/_config/gh/" ~/.config/gh/
-rsync -avc --mkpath $1 "$FILES_DIR/_config/opencode/opencode.jsonc" ~/.config/opencode/opencode.jsonc
-rsync -avc --mkpath $1 "$FILES_DIR/_config/opencode/AGENTS.md" ~/.config/opencode/AGENTS.md
-rsync -avc --mkpath $1 --delete "$FILES_DIR/_config/opencode/skills/" ~/.config/opencode/skills/
+rsync -avc --mkpath $1 "$FILES_DIR/_config/opencode/" ~/.config/opencode/
 rsync -avc --mkpath $1 "$FILES_DIR/_config/pandoc/" ~/.local/share/pandoc/
 
 mkdir -p ~/.config/nvim/autoload
@@ -45,6 +43,10 @@ mkdir -p ~/.local/share/java
 PLANTUML_TAG=$(curl -s https://api.github.com/repos/plantuml/plantuml/releases/latest | jq -r .tag_name)
 curl -fSL -o ~/.local/share/java/plantuml.jar \
 	"https://github.com/plantuml/plantuml/releases/download/${PLANTUML_TAG}/plantuml.jar"
+
+bun add --global --dev --exact prettier@latest
+bun add --global --exact @fission-ai/openspec@latest
+openspec completion install bash
 
 if test -n "$DISPLAY"; then
 	rsync -avc --mkpath $1 "$FILES_DIR/parcelliterc" ~/.config/parcellite/parcelliterc

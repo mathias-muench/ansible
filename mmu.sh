@@ -46,7 +46,7 @@ curl -fSL -o ~/.local/share/java/plantuml.jar \
 
 bun add --global --dev --exact prettier@latest
 bun add --global --exact @fission-ai/openspec@latest
-openspec completion install bash
+$HOME/.bun/bin/openspec completion install bash
 
 if test -n "$DISPLAY"; then
 	rsync -avc --mkpath $1 "$FILES_DIR/parcelliterc" ~/.config/parcellite/parcelliterc

@@ -15,5 +15,50 @@
         },
       },
     },
+    "deepinfra": {
+      "models": {
+        "anthropic/claude-opus-5-5": {
+          "name": "Claude Opus 5.5",
+          "status": "active",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "temperature": true,
+          "cost": {
+            "input": 4.0,
+            "output": 20.0,
+            "cache_read": 0.2,
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 1000000,
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"],
+          },
+        },
+        "anthropic/claude-sonnet-5": {
+          "name": "Claude Sonnet 5",
+          "status": "active",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "temperature": true,
+          "cost": {
+            "input": 3.0,
+            "output": 15.0,
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 1000000,
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"],
+          },
+        },
+      },
+    },
   },
 }

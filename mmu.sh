@@ -11,9 +11,6 @@ cat >$HOME/.tar-exclude <<'EOF'
 ./.local/bin/
 ./.local/lib/
 ./.local/state/
-./.bash_logout
-./.bash_profile
-./.bashrc
 ./thinclient_drives
 ./.config/nvim
 ./.config/parcellite/parcelliterc
@@ -26,6 +23,7 @@ cachedir_tag="Signature: 8a477f597d8806b69e8bc95c1d6bf384"
 
 test -d $HOME/.cache && echo "$cachedir_tag" >$HOME/.cache/CACHEDIR.TAG
 
+rsync -rvc $dry_run /etc/skel/ $HOME/
 rsync -vc --mkpath $dry_run ./files/_bashrc.d/* $HOME/.bashrc.d/
 test -d $HOME/.bashrc.d && echo "$cachedir_tag" >$HOME/.bashrc.d/CACHEDIR.TAG
 

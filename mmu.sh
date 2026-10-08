@@ -7,16 +7,7 @@ dry_run=${1:-}
 cd $(dirname "${BASH_SOURCE[0]}")
 
 cat >$HOME/.tar-exclude <<'EOF'
-./.tar-exclude
-./.local/bin/
-./.local/lib/
-./.local/state/
 ./thinclient_drives
-./.config/nvim
-./.config/parcellite/parcelliterc
-./.config/i3
-./.Xresources
-./.xsession
 EOF
 
 cachedir_tag="Signature: 8a477f597d8806b69e8bc95c1d6bf384"
@@ -24,14 +15,15 @@ cachedir_tag="Signature: 8a477f597d8806b69e8bc95c1d6bf384"
 test -d $HOME/.cache && echo "$cachedir_tag" >$HOME/.cache/CACHEDIR.TAG
 
 rsync -rvc $dry_run /etc/skel/ $HOME/
-rsync -vc --mkpath $dry_run ./files/_bashrc.d/* $HOME/.bashrc.d/
+rsync -rvc --mkpath $dry_run ./files/_bashrc.d/ $HOME/.bashrc.d/
 test -d $HOME/.bashrc.d && echo "$cachedir_tag" >$HOME/.bashrc.d/CACHEDIR.TAG
-
 rsync -vc --mkpath $dry_run ./files/_Xresources $HOME/.Xresources
 rsync -vc --mkpath $dry_run --executability ./files/_xsession $HOME/.xsession
+
 rsync -rvc --mkpath $dry_run ./files/_config/ $HOME/.config/
 test -d $HOME/.config/opencode && echo "$cachedir_tag" >$HOME/.config/opencode/CACHEDIR.TAG
 rsync -rvc --mkpath $dry_run ./files/_local/ $HOME/.local/
+test -d $HOME/.local/share/pandoc && echo "$cachedir_tag" >$HOME/.local/share/pandoc/CACHEDIR.TAG
 
 mkdir -p $HOME/.config/nvim/autoload
 curl -fSL -o $HOME/.config/nvim/autoload/plug.vim \

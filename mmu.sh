@@ -10,7 +10,7 @@ cat >$HOME/.tar-exclude <<'EOF'
 ./thinclient_drives
 EOF
 
-cachedir_tag="Signature: 8a477f597d8806b69e8bc95c1d6bf384"
+cachedir_tag="Signature: 8a477f597d28d172789f06886806bc55"
 
 test -d $HOME/.cache && echo "$cachedir_tag" >$HOME/.cache/CACHEDIR.TAG
 test -d $HOME/.npm && echo "$cachedir_tag" >$HOME/.npm/CACHEDIR.TAG
@@ -29,8 +29,8 @@ rsync -rvc --mkpath $dry_run ./files/_local/ $HOME/.local/
 test -d $HOME/.local/share/pandoc && echo "$cachedir_tag" >$HOME/.local/share/pandoc/CACHEDIR.TAG
 
 mkdir -p $HOME/.config/nvim/autoload
-curl -fSL -o $HOME/.config/nvim/autoload/plug.vim \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fSL -o $HOME/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+test -d $HOME/.config/nvim && echo "$cachedir_tag" >$HOME/.config/nvim/CACHEDIR.TAG
 
 mkdir -p $HOME/.local/share/java
 set -- $(curl -s https://api.github.com/repos/plantuml/plantuml/releases/latest | jq -r '.tag_name, .published_at')
@@ -43,3 +43,4 @@ bun add --global --exact @fission-ai/openspec@latest
 $HOME/.bun/bin/openspec completion install bash
 
 patch --verbose -fr- $dry_run -p0 --directory $HOME <./patches/_config/i3/config.patch || true
+test -d $HOME/.config/i3 && echo "$cachedir_tag" >$HOME/.config/i3/CACHEDIR.TAG

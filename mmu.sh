@@ -13,6 +13,9 @@ EOF
 cachedir_tag="Signature: 8a477f597d8806b69e8bc95c1d6bf384"
 
 test -d $HOME/.cache && echo "$cachedir_tag" >$HOME/.cache/CACHEDIR.TAG
+test -d $HOME/.npm && echo "$cachedir_tag" >$HOME/.npm/CACHEDIR.TAG
+test -d $HOME/.local/share/uv && echo "$cachedir_tag" >$HOME/.local/share/uv/CACHEDIR.TAG
+test -d $HOME/.local/share/containers && echo "$cachedir_tag" >$HOME/.local/share/containers/CACHEDIR.TAG
 
 rsync -rvc $dry_run /etc/skel/ $HOME/
 rsync -rvc --mkpath $dry_run ./files/_bashrc.d/ $HOME/.bashrc.d/

@@ -1,6 +1,10 @@
 ## The "bash" tool
 
-- Use tools over bash.
+Use tools over bash.
+
+- edit every file with Edit or Write, never yq -i, sed -i or redirects.
+- use bash only for read-only checks such as kustomize build and yq queries.
+
 - Keep diversity of bash tools small
   - use `sed` instead of grep, head, tail, and-so-on. These are examples,
     complete the list yourself.

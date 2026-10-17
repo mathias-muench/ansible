@@ -1,2 +1,2 @@
-Set-PSReadlineKeyHandler -Key Tab -Function Complete
 Set-PSReadLineOption -EditMode Vi
+Set-PSReadlineKeyHandler -Key Tab -Function Complete

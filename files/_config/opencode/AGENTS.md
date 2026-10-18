@@ -16,6 +16,17 @@ Use tools over bash.
 
 - When providing commands for copy/paste, use clean one-line command lines, no
   line contiuation with `\\`
+- Decisions come back as short numbered options with one-line, mechanism-level
+  consequences. Do the legwork first; expect terse rulings ("opt 1", "confirm")
+  and act on them.
+- Material prepared for review ships minimal and default-aligned: review
+  means deleting what you don't want enforced, not approving values. Flag the
+  risk-bearing entries; do not demand line-by-line approval.
+- A file the user has reviewed and signed off is read-only afterward. When a
+  declared action fails (a device, tool, or API refuses it), report and ask;
+  never substitute or narrow the user's decision to keep work moving.
+- Git belongs to the user: prepare and verify read-only (status, diff, log);
+  commit only on explicit instruction.
 
 ## Code Style
 
@@ -56,5 +67,8 @@ Use tools over bash.
   fact, not a setting.
 - **No comments unless the code cannot say it.** Section comments structure the
   file; the rest is code.
+- **Comments as memory.** A comment must match the value or code it annotates.
+  Anything that once failed carries the failure evidence (error, refusal,
+  cause) in its comment, so a future edit does not retry it.
 - **Auto-formatting is enabled.** Do not fight the formatters, accept the standard
   format.

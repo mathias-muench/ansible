@@ -4,7 +4,7 @@ param(
 
 $L = if ($DryRun) { "/L" } else { $null }
 
-& robocopy "$PSScriptRoot\files\_config\opencode" "$env:USERPROFILE\.config\opencode" /NJH /NJS $L
+& robocopy "$PSScriptRoot\files\_config\opencode" "$env:USERPROFILE\.config\opencode" /E /NJH /NJS $L
 & robocopy "$PSScriptRoot\files\Documents\PowerShell" "$(Split-Path $PROFILE)" /E /NJH /NJS $L
 
 New-Item -ItemType Directory -Force -Path "$env:LOCALAPPDATA\nvim\autoload"

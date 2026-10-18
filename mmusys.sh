@@ -10,7 +10,8 @@ dnf install -y \
 	okular openssl pandoc-cli parallel podman pre-commit \
 	python3-pip sshuttle tig uv weasyprint yq \
 	shfmt bun-dist opencode-dist urxvt \
-	tesseract tesseract-langpack-deu chrony
+	tesseract tesseract-langpack-deu chrony copr-cli \
+	rpm-build
 
 test -n "$DISPLAY" && dnf install -y \
 	fira-code-fonts firefox parcellite xsel xset

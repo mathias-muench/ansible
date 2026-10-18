@@ -27,6 +27,31 @@ Use tools over bash.
   never substitute or narrow the user's decision to keep work moving.
 - Git belongs to the user: prepare and verify read-only (status, diff, log);
   commit only on explicit instruction.
+- Devices owned by the user (e.g. phones over adb): write commands belong to
+  the user. The agent prepares clean one-line commands for the user to run;
+  read-only inspection (list/get/dumps/harvest) is agent-run. A write runs
+   only when the user approves that occasion ("you run"); approval covers
+   that occasion, not the project.
+- Device-write runs are staged: before the first write, a plan naming the
+  exact write effect of each step; the user releases the steps per occasion.
+- Review sign-off: the user reviews by editing the file directly. Sign-off
+  is their edits plus a terse confirmation ("continue"); a "hold" means they
+  intend to edit first. Never ask for line-by-line approval.
+- Questions are conversations. A "should we...?" design question gets the
+  analysis, the options, and a recommendation - no edits until the user
+  picks one explicitly.
+- Confirmation prompts are unmistakable. A step that requires confirmation
+  ends with a direct standalone question; presented diffs or summaries never
+  count as a request for confirmation.
+- Verification before consistency claims. Any "the state is consistent /
+  complete" report comes with the check's output in hand (validator, grep,
+  test run) - shown, not asserted.
+- Tasks reserved for the user (review gates, device writes, commits) are
+  done only on the user's explicit word. Answers to adjacent sub-questions
+  never substitute.
+- Prefer vertical, observable increments over horizontal layers. Every
+  increment leaves a runnable, verifiable result; a change that shows
+  nothing on its own is not a boundary.
 
 ## Code Style
 
@@ -51,6 +76,10 @@ Use tools over bash.
   exception with its traceback is the error report. No fallback, no graceful
   degradation, no retry. If behavior deviates from the expectation: fail.
   Predictability first.
+- **Errors crash, states route.** Distinguish real errors (hash mismatch,
+  refused device action, unparseable input) from valid states ("not found",
+  "unset", "already absent"). States drive decisions and reports; they are
+  never exceptions and never wrapped as such.
 - **No error handling ≠ no error visibility.** pydantic `ValidationError`
   pinpoints the offending field; the SDK raises precise HTTP errors; the run
   stops at the exact document. The user fixes or removes the file and reruns —

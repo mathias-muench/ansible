@@ -1,3 +1,5 @@
 xrdb -merge $HOME/.Xresources
 xset -b
+export XDG_CURRENT_DESKTOP=i3
+dbus-update-activation-environment --systemd DISPLAY XDG_CURRENT_DESKTOP
 i3

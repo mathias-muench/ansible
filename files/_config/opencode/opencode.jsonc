@@ -1,4 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["opencode-reminders"],
+    "external_directory": {
+      "/tmp/opencode": "allow",
+    },
+  "formatter": {
+    "prettier": {
+      "command": ["prettier", "--prose-wrap always", "--write", "$FILE"],
+    },
+  },
 }

@@ -55,14 +55,15 @@ Use tools over bash.
 
 ## Code Style
 
-- **Minimal, minimal, minimal.** Avoid all boilerplate that does not belong to
+- **Focus, Focus, Focus.** Avoid all boilerplate that does not belong to
   funcionality. No pretty output, no error handling, no elaborate arg parsing.
-- **Minimal does not mean obfuscated.** Code shall be idiomatic, not verbose,
-  but obfuscating tricks to save lines of code are a no go.
+- **Minimal does not mean obfuscated.** Code shall be idiomatic. Be generous
+  with libraries the allow to show the task in code. Be greedy with libraries
+  that add bells, whistels and sugar.
 - **Avoid useless variables and functions.** A variable that is referred only
   once, a short function called only once, all this only requests cross
   reference look up from the reader. Instead use perfect Structured Programming.
-  No early returns, breaks, exits. Large code block are no problem as long as
+- No early returns, breaks, exits. Large code block are no problem as long as
   they do not contain surprises.
 - **Dependencies express intent idiomatically** — they are welcome when they
   make the code say _what_ happens instead of _how_:

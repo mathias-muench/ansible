@@ -33,6 +33,13 @@ Find the file that is actually loaded before editing. Instruction files are comb
 - `rules.<artifact>`: rules applied only when that artifact (proposal, specs, design, tasks) is created. One short line each.
 - `operations.<step>.guidance`: how to carry out `apply` and `archive`.
 
+## Store-backed config
+
+- A repository that declares `store: <id>` in its `openspec/config.yaml` has that file ignored; the store's own `openspec/config.yaml` is the only OpenSpec config read. Edit the store file, never the repository's.
+- The store file serves every repository that declares it, so it stays repo-neutral: no repository, stack or environment names. Repo-specific text goes into that repository's instructions.
+- Repo instructions may live out of tree, in `OPENCODE_CONFIG_DIR` (see "Where instructions live"). Never edit a team-owned `AGENTS.md` in the repository for personal workflow text.
+- Append `--store <id>` to every `openspec` command in the verify step.
+
 ## No duplication
 
 - State every rule in exactly one file. Whatever is in `AGENTS.md` must NOT be restated in `config.yaml` `context`: both reach the agent's prompt, so a repeated rule appears twice.
@@ -48,7 +55,7 @@ Find the file that is actually loaded before editing. Instruction files are comb
 
 ## Verify before finishing
 
-1. Run `openspec instructions <artifact> --change <change> --json` and check: no parse warning in stderr, the new context and rules appear in the output, and nothing from AGENTS.md appears twice.
+1. Run `openspec instructions <artifact> --change <change> --json` (with `--store <id>` when the store is used) and check: no parse warning in stderr, the new context and rules appear in the output, and nothing from AGENTS.md appears twice.
 2. If the repo has a pure-ASCII rule, search the edited files for non-ASCII and convert your own edits.
 3. Report which file holds which rule, so a future edit does not move or duplicate it.
 

@@ -12,6 +12,23 @@ Use tools over bash.
   - global options a forbdden - use `cd ~/foo && git status` over
     `git -C ~/foo status`. The same for all other git commands.
 
+## Read first (RTFM)
+
+No work starts before the literature is searched and read. "I know this" is
+not a reason to skip: training data is stale, the docs are the authority.
+
+- Work means any edit, command, design or answer that depends on how a tool,
+  module, API or format behaves. Trivial edits whose facts sit in the edited
+  file are exempt.
+- Local first, completely: the repo's README, docs, AGENTS.md and the existing
+  code or config of the thing you touch. Read whole files, not grep hits.
+- Then the web: the official documentation for every tool, module, API and
+  version involved, fetched with WebFetch. A URL the user names is read in
+  full, plus the linked pages that bear on the task.
+- Before the first edit, state a short "Read:" list of paths and URLs with
+  versions. What was not read is listed as "not read", never implied.
+- A failed fetch is reported. Never fill the gap from memory unannounced.
+
 ## User Interaction
 
 - When providing commands for copy/paste, use clean one-line command lines, no
@@ -30,8 +47,8 @@ Use tools over bash.
 - Devices owned by the user (e.g. phones over adb): write commands belong to
   the user. The agent prepares clean one-line commands for the user to run;
   read-only inspection (list/get/dumps/harvest) is agent-run. A write runs
-   only when the user approves that occasion ("you run"); approval covers
-   that occasion, not the project.
+  only when the user approves that occasion ("you run"); approval covers
+  that occasion, not the project.
 - Device-write runs are staged: before the first write, a plan naming the
   exact write effect of each step; the user releases the steps per occasion.
 - Review sign-off: the user reviews by editing the file directly. Sign-off

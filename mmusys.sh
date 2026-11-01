@@ -17,11 +17,3 @@ test -n "$DISPLAY" && dnf install -y \
 	fira-code-fonts firefox parcellite xsel xset
 
 dnf remove -y nano-default-editor
-
-cat >/etc/chrony.conf <<EOF
-server ntp1.ptb.de iburst maxpoll 6
-server ntp2.ptb.de iburst maxpoll 6
-server ntp3.ptb.de iburst maxpoll 6
-makestep 1 -1
-EOF
-systemctl enable --now chronyd

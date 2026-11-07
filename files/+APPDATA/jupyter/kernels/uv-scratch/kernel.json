@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "uv",
+    "run",
+    "--no-project",
+    "--with",
+    "ipykernel",
+    "--with",
+    "matplotlib",
+    "--with",
+    "seaborn",
+    "--with",
+    "pandas",
+    "python",
+    "-m",
+    "ipykernel_launcher",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "Python (uv)",
+  "language": "python"
+}

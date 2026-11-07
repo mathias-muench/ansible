@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Parcellite
+Comment=Clipboard Manager
+Icon=parcellite
+Exec=parcellite
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
+X-Desktop-File-Install-Version=0.28
+Categories=TrayIcon;
+OnlyShowIn=GNOME;KDE;LXDE;MATE;Razor;ROX;TDE;Unity;XFCE;i3;

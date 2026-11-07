@@ -1,6 +1,15 @@
 --- .config/i3/config	2022-12-27 19:52:31.963388386 +0100
 +++ .config/i3/config	2022-12-27 19:53:00.000000000 +0100
-@@ -150,7 +150,11 @@
+@@ -31,8 +31,7 @@
+ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+ 
+ # NetworkManager is the most popular way to manage wireless networks on Linux,
+ # and nm-applet is a desktop environment-independent system tray GUI for it.
+-exec --no-startup-id nm-applet
+ 
+ # Use pactl to adjust volume in PulseAudio.
+ set $refresh_i3status killall -SIGUSR1 i3status
+@@ -150,7 +149,10 @@
  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
  bindsym $mod+Shift+r restart
  # exit i3 (logs you out of your X session)
@@ -10,6 +19,5 @@
 +bindsym $mod+x move workspace to output next
 +bindsym $mod+Shift+minus move scratchpad
 +bindsym $mod+minus scratchpad show
-+exec --no-startup-id parcellite
  # resize window (you can also use the mouse for that)
  mode "resize" {

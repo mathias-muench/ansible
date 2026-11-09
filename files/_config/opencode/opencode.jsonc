@@ -2,6 +2,8 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["opencode-reminders"],
     "external_directory": {
+      "~/*": "deny",
+      "~/Downloads": "allow",
       "~/.config/opencode": "allow",
       "/tmp/opencode": "allow",
     },

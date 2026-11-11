@@ -1,12 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["opencode-reminders"],
+  "permission": {
     "external_directory": {
+      "/tmp/*": "allow",
       "~/*": "deny",
-      "~/Downloads": "allow",
-      "~/.config/opencode": "allow",
-      "/tmp/opencode": "allow",
+      "~/Downloads/*": "allow",
+      "~/.config/opencode/*": "allow",
+      "~/src/ansible/*": "allow",
+      "~/.local/share/openspec/*": "allow",
+      "~/.local/share/opencode/tool-output/*": "allow",
     },
+  },
   "formatter": {
     "prettier": {
       "command": ["prettier", "--prose-wrap always", "--write", "$FILE"],

@@ -15,14 +15,15 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/junegunn/vim-plug/mast
 & robocopy "$PSScriptRoot\files\_config\nvim" "$env:LOCALAPPDATA\nvim" init.vim /NJH /NJS $L
 & robocopy "$PSScriptRoot\files\+APPDATA\jupyter" "$env:APPDATA\jupyter" /E /NJH /NJS $L
 
-bun add --global --dev --exact prettier@latest
+bun add --global --save-prod --exact prettier@latest
+bun add --global --trust --exact opencode-ai@^1.0.0
 bun add --global --exact @fission-ai/openspec@latest
+bun add --global github:TKasperczyk/thunderbird-mcp
+
 $env:PROFILE = $PROFILE
 openspec completion install powershell
 
-Get-Command scoop -ErrorAction Ignore || Invoke-RestMethod get.scoop.sh | Invoke-Expression -Verbose
+# Get-Command scoop -ErrorAction Ignore || Invoke-RestMethod get.scoop.sh | Invoke-Expression -Verbose
 scoop bucket add main
 scoop bucket add extras
 scoop bucket add mmu https://github.com/mathias-muench/scoop-mmu.git
-scoop update
-scoop update *

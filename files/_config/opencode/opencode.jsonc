@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-reminders"],
   "permission": {
     "external_directory": {
       "/tmp/*": "allow",

@@ -39,8 +39,10 @@ if [[ ! -f $HOME/.local/share/java/plantuml.jar ]] || (($(date -ud "$2" +%s) > $
 	curl -fSL -o $HOME/.local/share/java/plantuml.jar "https://github.com/plantuml/plantuml/releases/download/$1/plantuml.jar"
 fi
 
-bun add --global --dev --exact prettier@latest
+bun add --global --save-prod --exact prettier@latest
+bun add --global --trust --exact opencode-ai@^1.0.0
 bun add --global --exact @fission-ai/openspec@latest
+bun add --global github:TKasperczyk/thunderbird-mcp
 $HOME/.bun/bin/openspec completion install bash
 
 patch --verbose -fr- $dry_run -p0 --directory $HOME <./patches/_config/i3/config.patch || true

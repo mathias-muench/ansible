@@ -17,7 +17,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/junegunn/vim-plug/mast
 
 bun add --global --save-prod --exact prettier@latest
 bun add --global --trust --exact opencode-ai@^1.0.0
-bun add --global --exact @fission-ai/openspec@latest
+bun add --global --exact @fission-ai/openspec@^1.0.0
 bun add --global github:TKasperczyk/thunderbird-mcp
 
 $env:PROFILE = $PROFILE

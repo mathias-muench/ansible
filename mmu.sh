@@ -41,7 +41,7 @@ fi
 
 bun add --global --save-prod --exact prettier@latest
 bun add --global --trust --exact opencode-ai@^1.0.0
-bun add --global --exact @fission-ai/openspec@latest
+bun add --global --exact @fission-ai/openspec@^1.0.0
 bun add --global github:TKasperczyk/thunderbird-mcp
 $HOME/.bun/bin/openspec completion install bash
 

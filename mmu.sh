@@ -44,6 +44,7 @@ bun add --global --trust --exact opencode-ai@^1.0.0
 bun add --global --exact @fission-ai/openspec@^1.0.0
 bun add --global github:TKasperczyk/thunderbird-mcp
 $HOME/.bun/bin/openspec completion install bash
+$HOME/.bun/bin/opencode completion >$HOME/.local/share/bash-completion/completions/opencode
 
 patch --verbose -fr- $dry_run -p0 --directory $HOME <./patches/_config/i3/config.patch || true
 test -d $HOME/.config/i3 && echo "$cachedir_tag" >$HOME/.config/i3/CACHEDIR.TAG
